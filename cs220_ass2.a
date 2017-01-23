@@ -1,0 +1,49 @@
+#To convert all lowercase alphabets to upper case
+
+#----------------------------------------------------------------------------
+#Data Declarations
+
+.data
+	str1:		.asciiz		"Enter a string: "
+	str2:		.asciiz		""
+
+#----------------------------------------------------------------------------
+#Program code goes here
+
+.text
+	.globl main
+	main:
+		li		$v0, 4				#Code to print str1
+		la 		$a0, str1
+		syscall
+
+		li		$v0, 8				#Code to read str2
+		la 		$a0, str2
+		syscall
+
+		la 		$t0, str2			#t0 has the address of str2
+
+	loop:
+		lb		$t1, ($t0)			#t1 has the corresponding byte of t0
+		beqz	$t1, end			#if t1 == 0, goto end
+		addi	$t2, $zero, 0x61	#t2 = 97
+		addi	$t3, $zero, 0x7A	#t3 = 122
+		addi	$t4, $zero, 0x20	#t4 = 32
+		blt		$t1, $t2, incr		#goto incr if t1 < t2
+		bgt		$t1, $t3, incr		#goto incr if t1 > t3
+		sub		$t1, $t1, $t4		#t1 = t1 - t4 ; converts lowercase to uppercase
+		sb 		$t1, ($t0)			#store t1 in t0
+
+	incr:
+		addi	$t0, $t0, 1			#incr the pointer t0
+		j		loop
+
+	end:
+		li		$v0, 4				#Code to print str2
+		la 		$a0, str2
+		syscall
+
+		li 		$v0, 10				#Code for program end
+		syscall
+
+
