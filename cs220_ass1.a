@@ -1,0 +1,89 @@
+#Data Declarations
+
+.data
+	str1:		.asciiz		"Enter value of x: "
+	str2:		.asciiz		"Enter value of y: "
+	newline:	.asciiz		"\n"
+	x:			.word		0
+	y:			.word		0
+	answer:		.word		0	
+
+#----------------------------------------------------------------------------
+#Program code goes here
+
+.text
+	.globl main
+	.ent main
+	main:
+		li	$v0, 4				#Code to print str1
+		la 	$a0, str1
+		syscall
+
+		li	$v0, 5				#Code to read x
+		syscall
+
+		sw	$v0, x				#Code to store value of x in memory
+
+		li	$v0, 4				#Code to print str2
+		la 	$a0, str2
+		syscall
+
+		li	$v0, 5				#Code to read y
+		syscall
+
+		sw	$v0, y				#Code to store value of y in memory
+
+		lw	$a0, x				#Load x in argument 1
+		lw	$a1, y				#Load y in argument 2
+		jal	func				#jump to func
+		sw	$v0, answer			#Store v0(the return value) in memory(answer)
+
+		li	$v0, 1				#Code to print answer
+		lw	$a0, answer
+		syscall
+
+		li	$v0, 4				#Code to print newline
+		la 	$a0, newline
+		syscall
+
+		li 	$v0, 10				#Code for program end
+		syscall
+
+	.end main
+
+	#----------------------------------------------------------------------------
+	# Declaration of function func
+
+	.globl func
+	.ent func
+	func:
+		addi	$t0, $zero, 0x5				#t0 = 5
+		addi	$t1, $zero, 0x7				#t1 = 7
+		addi	$t2, $zero, 0x23			#t2 = 35
+		sub $t3, $zero, $t2 				#t3 = -35
+		mul	$t0, $t0, $a0					#t0 = t0 * x
+		mul	$t1, $t1, $a1					#t0 = t0 * y
+		add $t0, $t0, $t1					#t0 = t0 + t1
+		sub $t0, $zero, $t0					#t0 = -t0 - t1
+		blt	$t0, $t3, cond1					#If t0 < t3, goto cond1
+		bgt $t0, $t2, cond2					#If t0 > t2, goto cond2
+		add $v0, $zero, $t0					#v0 = t0
+		jr	$ra 							#return the control to calling function
+
+	cond1:
+		add $v0, $zero, $t3					#v0 = t3
+		jr	$ra 							#return the control to calling function
+
+	cond2:
+		add $v0, $zero, $t2					#v0 = t2
+		jr	$ra								#return the control to calling function
+
+	.end func
+
+	#----------------------------------------------------------------------------
+
+
+
+
+
+

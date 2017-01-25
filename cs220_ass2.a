@@ -12,6 +12,7 @@
 
 .text
 	.globl main
+	.ent main
 	main:
 		li	$v0, 4				#Code to print str1
 		la 	$a0, str1
@@ -45,5 +46,7 @@
 
 		li 	$v0, 10				#Code for program end
 		syscall
+
+	.end main
 
 #----------------------------------------------------------------------------
