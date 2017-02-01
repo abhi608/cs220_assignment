@@ -1,0 +1,84 @@
+#Data Declarations
+.data
+	msg_1 : .asciiz "Enter numerator of 1st input	:"
+	msg_2 : .asciiz "Enter denominator of 1st input	:"
+	msg_3 : .asciiz "Enter numerator of 2nd input	:"
+	msg_4 : .asciiz "Enter denominator of 2nd input	:"
+	num_1 : .float 1.0
+	den_1 : .float 2.0
+	num_2 : .float 3.0
+	den_2 : .float 4.0
+#=========================================================================================
+#Program code
+.text
+	.globl main
+
+	main:
+
+#to-do - Add condition to check for 0 denominator
+		#print message string-1
+		li $v0, 4
+		la $a0, msg_1		#2nd argument is the pointer to the source string
+		syscall
+
+		#scan float
+		li $v0, 6			#scanned float stored in $f0
+		syscall
+		s.s $f0, num_1
+		
+		#print message string-2
+		li $v0, 4
+		la $a0, msg_2		#2nd argument is the pointer to the source string
+		syscall
+
+		#scan float
+		li $v0, 6			#scanned float stored in $f0
+		syscall
+		s.s $f0, den_1
+		
+		#print message string-3
+		li $v0, 4
+		la $a0, msg_3		#2nd argument is the pointer to the source string
+		syscall
+
+		#scan float
+		li $v0, 6			#scanned float stored in $f0
+		syscall
+		s.s $f0, num_2
+
+		#print message string-4
+		li $v0, 4
+		la $a0, msg_4		#2nd argument is the pointer to the source string
+		syscall
+
+		#scan float
+		li $v0, 6			#scanned float stored in $f0
+		syscall
+		s.s $f0, den_2
+
+		l.s $f1, num_1
+		l.s $f2, den_1
+		l.s $f3, num_2
+		l.s $f4, den_2
+
+		div.s $f5, $f1, $f2
+		div.s $f6, $f3, $f4
+		add.s $f7, $f5, $f6
+
+		mov.s $f12, $f7
+
+		li $v0, 2
+		syscall
+		j exit
+
+	exit: 
+		#exit call
+		li $v0, 10
+		syscall
+
+#	 multiply or devide by 10 till we get the number between [1,10), keep a count
+#    multiply the value (float-A) by 100 (mul.d), float -1
+#    round to an integer, (round.l.d),
+#    convert back to floating point (cvt.d.l), and
+#    divide by 100 (div.d). (float-B)
+#	 subtract float-A from float-B to decide where to round off
