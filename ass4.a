@@ -63,18 +63,16 @@
 
 		div.s $f5, $f1, $f2
 		div.s $f6, $f3, $f4
-		add.s $f7, $f5, $f6
+		add.s $f7, $f5, $f6			#the result of addition stored in $f7
 
-		mov.s $f12, $f7
+		cvt.w.s $f8, $f7			#converting float to int then moving to int register
+		mfc1 $t1, $f8
 
-		li $v0, 2
+		move $a0, $t1
+
+		li $v0, 1	
 		syscall
 		j exit
-
-	exit: 
-		#exit call
-		li $v0, 10
-		syscall
 
 #	 multiply or devide by 10 till we get the number between [1,10), keep a count
 #    multiply the value (float-A) by 100 (mul.d), float -1
@@ -82,3 +80,8 @@
 #    convert back to floating point (cvt.d.l), and
 #    divide by 100 (div.d). (float-B)
 #	 subtract float-A from float-B to decide where to round off
+
+	exit: 
+		#exit call
+		li $v0, 10
+		syscall
