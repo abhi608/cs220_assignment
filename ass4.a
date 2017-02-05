@@ -1,3 +1,22 @@
+#		1. scan 4 floats(n1 , d1 , n2, d2) and store it in memory
+#		2. load all 4 in f1,f2,f3,f4 respectively
+#		3. store rationals in f5 and f6 
+#		4. store addition of rationals in f7 
+#		5. print sign of result
+#		6. get_exponent
+#			a. divide or multiply by 10 till desired format
+#			b. exponent in t0
+#			c. modified result in f7
+#		7. round_off the result
+#			a. multiply by 100 : f11
+#			b. convert f11 to integer :t1(3 digit number)
+#			c. convert t1 to float : f14
+#			d. divide f14 by 100 : f15
+#			e. subtract f15 from f7 to decide where to round off (add 1 to int t1 to increase)
+#			f. divide t1 by 100 and print divisor(lo), decimal, remainder(hi), e and exponent(t0)
+#		8. exit
+
+
 #Data Declarations
 .data
 	msg_1 : .asciiz "Enter numerator of 1st input	:"
