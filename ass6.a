@@ -1,0 +1,114 @@
+#Data Declarations
+.data
+	msg_1 : .asciiz "Enter Number of integers: "
+	msg_2 : .asciiz "Enter next integers: "
+	tab : .asciiz " "
+	array_size : .word 0
+	array : .word 0
+
+#=========================================================================================
+#Program code
+.text
+	.globl main
+
+	main:
+		#print message string
+		li $v0, 4
+		la $a0, msg_1			#2nd argument is the pointer to the string
+		syscall
+
+		#scan int
+		li $v0, 5
+		syscall
+		move $t0,$v0
+		sw $t0, array_size		#store size of array in t0
+
+		li $t1,0				
+		la $t2,array 			#store pointer of array in t2
+
+		li $t3,-1				#initial condition for swap_count
+
+		j scan_loop
+
+	#=====================================================================================
+	#loop to scan all the integers
+	scan_loop:
+		ble $t0,$t1,bubble_sort	#if t0<t1
+
+		li	$v0, 4				#Code to print msg_2
+		la 	$a0, msg_2
+		syscall
+
+		li $v0, 5				#code to scan int and save to memory
+		syscall
+		sw $v0,($t2)
+
+		addi $t2,4				#store address of next memory
+		addi $t1,1				#increment loop count
+
+		j scan_loop
+
+	print_loop:
+		ble $t0,$t1,exit		#if t0<t1
+
+		li	$v0, 1				#Code to print int
+		lw	$a0, ($t2)
+		syscall
+
+		li	$v0, 4				#Code to print tab
+		la 	$a0, tab
+		syscall
+
+		addi $t2,4				#store address of next memory
+		addi $t1,1				#increment loop count
+
+		j print_loop
+
+bubble_sort:
+
+		li $t1,0
+		la $t2,array 			#store pointer of array in t2
+		addi $t4,$t0,-1			#loop of bubble_sort will run (size of array -1) times
+
+		beqz $t3,print_loop
+		li $t3,0				#swap_count is in t3
+
+		loop:
+			ble $t4,$t1,bubble_sort
+
+			lw	$a0, ($t2)
+			lw	$a1, 4($t2)
+
+			blt $a1,$a0,swap_count	#if a1<a0
+
+			addi $t2,4				#store address of next memory
+			addi $t1,1				#increment loop count
+
+			j loop
+
+			swap_count:
+				jal swap
+				addi $t3,1
+
+			addi $t2,4				#store address of next memory
+			addi $t1,1				#increment loop count
+
+			j loop
+
+	exit: 
+		#exit call
+		li $v0, 10
+		syscall
+
+#----------------------------------------------------------------------------
+	# Declaration of function swap
+
+	.globl swap
+
+	swap:
+		sw $a1,($t2)				#swap and store a0 and a1 in memory
+		sw $a0,4($t2)
+		jr $ra
+
+	.end func
+#----------------------------------------------------------------------------
