@@ -31,6 +31,7 @@
 	e : .asciiz "e"
 	sign_positive : .asciiz "+"
 	sign_negative : .asciiz "-"
+	zero : .asciiz "0.00"
 #=========================================================================================
 #Program code
 .text
@@ -41,108 +42,123 @@
 #to-do - Add condition to check for 0 denominator
 		#print message string-1
 		li $v0, 4
-		la $a0, msg_1		#2nd argument is the pointer to the source string
+		la $a0, msg_1
 		syscall
 
 		#scan float
-		li $v0, 6			#scanned float stored in $f0
+		li $v0, 6
 		syscall
 		s.s $f0, num_1
 		
 		#print message string-2
 		li $v0, 4
-		la $a0, msg_2		#2nd argument is the pointer to the source string
+		la $a0, msg_2
 		syscall
 
 		#scan float
-		li $v0, 6			#scanned float stored in $f0
+		li $v0, 6
 		syscall
 		s.s $f0, den_1
 		
 		#print message string-3
 		li $v0, 4
-		la $a0, msg_3		#2nd argument is the pointer to the source string
+		la $a0, msg_3
 		syscall
 
 		#scan float
-		li $v0, 6			#scanned float stored in $f0
+		li $v0, 6
 		syscall
 		s.s $f0, num_2
 
 		#print message string-4
 		li $v0, 4
-		la $a0, msg_4		#2nd argument is the pointer to the source string
+		la $a0, msg_4
 		syscall
 
 		#scan float
-		li $v0, 6			#scanned float stored in $f0
+		li $v0, 6
 		syscall
 		s.s $f0, den_2
 
-		l.s $f1, num_1
-		l.s $f2, den_1
-		l.s $f3, num_2
-		l.s $f4, den_2
+		l.s $f1, num_1				#	f1=num_1
+		l.s $f2, den_1				#	f2=den_1
+		l.s $f3, num_2				#	f3=num_2
+		l.s $f4, den_2				#	f4=den_2
 
-		div.s $f5, $f1, $f2
-		div.s $f6, $f3, $f4
-		add.s $f7, $f5, $f6			#the result of addition stored in $f7
+		div.s $f5, $f1, $f2			#	f5=num_1/den_1
+		div.s $f6, $f3, $f4			#	f6=num_2/den_2
+		add.s $f7, $f5, $f6			#	f7=sum of the two numbers
 		
-		li.s $f8,0.0
-		li.s $f9,-1.0
+		li.s $f8,0.0				#	f8=0
+		li.s $f9,-1.0				#	f9=-1
+
+		c.eq.s $f7,$f8
+		bc1t	print_zero
 		
 		j print_sign
+
+		print_zero:
+			li $v0, 4
+			la $a0, zero
+			syscall	
+			j exit	
 
 		print_sign:
 
 			c.lt.s $f7, $f8
-			bc1t print_negative
+			bc1t convert_to_positive
 
-			print_negative:
-				mul.s $f7, $f7, $f9
-				li $v0, 4
-				la $a0, sign_negative		#2nd argument is the pointer to the source string
-				syscall
+			li.s $f8,10.0			#	f8=10
+			li.s $f9,1.0			#	f9=1
+			li $t0,0				#	t0=0
 
-			li.s $f8,10.0
-			li.s $f9,1.0
-			li $t0,0
+			j get_exponent
+
+		convert_to_positive:
+			mul.s $f7, $f7, $f9		#	f7=-f7
+			li $v0, 4
+			la $a0, sign_negative		#2nd argument is the pointer to the source string
+			syscall
+
+			li.s $f8,10.0			#	f8=10
+			li.s $f9,1.0			#	f9=1
+			li $t0,0				#	t0=0
 
 			j get_exponent
 
 		get_exponent: 
-			c.lt.s $f7,$f9
+			c.lt.s $f7,$f9			#	if f7<1
 			bc1t increase_exponent
-			c.le.s $f8,$f7
+			c.le.s $f8,$f7 			#	if f7>=10
 			bc1t decrease_exponent
 			j round_off
 
 			increase_exponent:
-				mul.s $f7,$f7,$f8
-				addi $t0,$t0,-1
+				mul.s $f7,$f7,$f8	# 	f7*=10
+				addi $t0,$t0,-1		#	t0+=-1
 				j get_exponent
 
 			decrease_exponent:
-				div.s $f7,$f7,$f8
-				addi $t0,$t0,1
+				div.s $f7,$f7,$f8	#	f7/=10
+				addi $t0,$t0,1		#	t0+=1
 				j get_exponent
 
 		round_off:
-			li.s $f10,100.0
-			mul.s $f11,$f7,$f10
+			li.s $f10,100.0			#	f10=100.0
+			mul.s $f11,$f7,$f10		#	f11=f7*100
 
-			cvt.w.s $f13, $f11			#converting float to int then moving to int register
+			cvt.w.s $f13, $f11		#converting float to int then moving to int register
 			mfc1 $t1, $f13
 
-			mtc1 $t1, $f14
+			mtc1 $t1, $f14			#bringing back to the float register
 			cvt.s.w $f14, $f14
 
-			div.s $f15,$f14,$f10
+			div.s $f15,$f14,$f10	#f15=f14/100
 
-			li.s $f16,0.005
-			sub.s $f17,$f7,$f15
-			c.le.s $f16,$f17
-			bc1t increase_int
+			li.s $f16,0.005			#f16=0.005
+			sub.s $f17,$f7,$f15		#f17-=f15
+			c.le.s $f16,$f17 		#if f17>0.005	
+			bc1t increase_int		#increment
 
 			j print
 
@@ -152,7 +168,7 @@
 			j print
 
 		print:
-			li $t2, 100  				#t2=100
+			li $t2, 100  			#t2=100
 			div $t1,$t2
 
 			mflo $a0
@@ -160,7 +176,7 @@
 			syscall
 
 			li $v0, 4
-			la $a0, decimal		#2nd argument is the pointer to the source string
+			la $a0, decimal
 			syscall
 
 			mfhi $a0
@@ -168,7 +184,7 @@
 			syscall
 
 			li $v0, 4
-			la $a0, e		#2nd argument is the pointer to the source string
+			la $a0, e
 			syscall
 
 			move $a0, $t0
@@ -176,13 +192,6 @@
 			syscall
 
 			j exit
-
-#	 multiply or devide by 10 till we get the number between [1,10), keep a count
-#    multiply the value (float-A) by 100 (mul.d), float -1
-#    round to an integer, (round.l.d),
-#    convert back to floating point (cvt.d.l), and
-#    divide by 100 (div.d). (float-B)
-#	 subtract float-A from float-B to decide where to round off
 
 	exit: 
 		#exit call
