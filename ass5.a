@@ -1,0 +1,78 @@
+#Data Declarations
+.data
+	msg_1 : .asciiz "Enter Number of elements: "
+	msg_2 : .asciiz "Fibonacci series: "
+	tab : .asciiz " "
+	N : .word 0
+	Fib : .word 0
+
+#=========================================================================================
+#Program code
+.text
+	.globl main
+
+	main:
+		#print message string
+		li $v0, 4
+		la $a0, msg_1			#2nd argument is the pointer to the string
+		syscall
+
+		#scan int
+		li $v0, 5
+		syscall
+		move $t0,$v0
+		sw $t0, N				#store N in t0 and store in memory
+
+		li $t1,0				
+		la $t2,Fib 				#store pointer of Fib series in t2
+
+		li $t3,0
+		sw $t3,($t2)			#store 1st element in t3 and memory
+		addi $t2,4
+
+		li $t4,1
+		sw $t4,($t2)			#store 2nd element in t4 and memory
+		addi $t2,4
+
+		add $t6,$t0,-2			#iterate Fib_loop N-2 times
+Fib_loop:
+	ble $t6,$t1,print			#if t6 = N -2 < t1 then print
+	add $t5,$t3,$t4
+	sw $t5,($t2)
+
+	add $t3,$t4,$zero
+	add $t4,$t5,$zero
+
+	addi $t2,4				#store address of next memory
+	addi $t1,1				#increment loop count
+
+	j Fib_loop
+
+print:
+	li $v0, 4
+	la $a0, msg_2			#2nd argument is the pointer to the string
+	syscall
+
+	li $t1,0				
+	la $t2,Fib 				#store pointer of Fib series in t2
+
+print_loop:
+		ble $t0,$t1,exit		#if t0<t1
+
+		li	$v0, 1				#Code to print int
+		lw	$a0, ($t2)
+		syscall
+
+		li	$v0, 4				#Code to print tab
+		la 	$a0, tab
+		syscall
+
+		addi $t2,4				#store address of next memory
+		addi $t1,1				#increment loop count
+
+		j print_loop
+
+exit: 
+	#exit call
+	li $v0, 10
+	syscall
