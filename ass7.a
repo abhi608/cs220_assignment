@@ -65,7 +65,7 @@
 		addi $t5, $t0, -1		#k=n-1
 
 		while:
-			bge $t4, $t5, not_found		#break if j>=k
+			bgt $t4, $t5, not_found		#break if j>=k
 
 			add $t3, $t4, $t5			#i=(j+k)/2
 			div $t3, $t3, 2
@@ -104,6 +104,25 @@
 			li $v0, 4
 			la $a0, msg_4			#2nd argument is the pointer to the string
 			syscall
+
+			search_i:
+				blt $t3, $zero, print_i
+				addi $t3, $t3, -1
+
+				la $t2,array 			#store pointer of array in t2
+
+				mul $t6, $t3,4			#t6 = address of a[i]-a[0]
+				add $t2, $t2, $t6		#t2 = address of a[i]
+
+				lw $t2, ($t2)			#t2 = a[i]
+
+				beq $t2, $t7, search_i
+
+			print_i:
+				li	$v0, 1				#Code to print int
+				addi $a0, $t3, 1
+				syscall
+
 			j exit
 
 	exit: 
