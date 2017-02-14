@@ -1,0 +1,112 @@
+#Data Declarations
+.data
+	msg_1 : .asciiz "Enter Number of integers in the array: "
+	msg_2 : .asciiz "Enter next integer: "
+	msg_3 : .asciiz "Enter the key to search: "
+	msg_4 : .asciiz "Leftmost index of the integer: "
+	msg_5 : .asciiz "Key not found"
+	space : .asciiz " "
+	array_size : .word 0
+	key : .word 0
+	array : .word 0
+#=========================================================================================
+#Program code
+.text
+	.globl main
+
+	main:
+		#print message string
+		li $v0, 4
+		la $a0, msg_1			#2nd argument is the pointer to the string
+		syscall
+
+		#scan int
+		li $v0, 5
+		syscall
+		move $t0,$v0
+		sw $t0, array_size		#store size of array in t0
+
+		li $t1,0
+		la $t2,array 			#store pointer of array in t2
+
+		j scan_array
+
+	#=====================================================================================
+	#loop to scan all the integers
+	scan_array:
+		ble $t0,$t1,scan_key	#if t0<t1
+
+		li	$v0, 4				#Code to print msg_2
+		la 	$a0, msg_2
+		syscall
+
+		li $v0, 5				#code to scan int and save to memory
+		syscall
+		sw $v0,($t2)
+
+		addi $t2,4				#store address of next memory
+		addi $t1,1				#increment loop count
+
+		j scan_array
+
+	scan_key:
+		li	$v0, 4				#Code to print msg_2
+		la 	$a0, msg_3
+		syscall
+
+		li $v0, 5				#code to scan int and save to memory
+		syscall
+		sw $v0,key
+		lw $t7,key			#t7=key
+
+	binary_search:
+		li $t3, 0				#i=0
+		li $t4, 0				#j=0
+		addi $t5, $t0, -1		#k=n-1
+
+		while:
+			bge $t4, $t5, not_found		#break if j>=k
+
+			add $t3, $t4, $t5			#i=(j+k)/2
+			div $t3, $t3, 2
+
+			la $t2,array 			#store pointer of array in t2
+
+			mul $t6, $t3,4			#t6 = address of a[i]-a[0]
+			add $t2, $t2, $t6		#t2 = address of a[i]
+
+			lw $t2, ($t2)			#t2 = a[i]
+			blt $t2, $t7, increment_j	#if(a[i]<key)	j=i
+
+			bgt $t2, $t7, decrement_k	#if(a[i]>key)	j=k
+
+			beq $t2, $t7, found 			#else found
+
+			j while
+
+			increment_j:
+				addi $t4, $t3, 1		#j=i+1
+				j while
+
+			decrement_k:
+				addi $t5, $t3, -1		#k=i-1
+				j while
+
+		not_found:
+			#print message string
+			li $v0, 4
+			la $a0, msg_5			#2nd argument is the pointer to the string
+			syscall
+			j exit
+
+		found:
+			#print message string
+			li $v0, 4
+			la $a0, msg_4			#2nd argument is the pointer to the string
+			syscall
+			j exit
+
+	exit: 
+		#exit call
+		li $v0, 10
+		syscall
