@@ -1,0 +1,256 @@
+#Data Declarations
+.data
+	msg_1 : .asciiz "Enter Number of Rows in Array-1: "
+	msg_2 : .asciiz "Enter Number of Columns in Array-1: "
+	msg_3 : .asciiz "Enter Number of Rows in Array-2: "
+	msg_4 : .asciiz "Enter Number of Columns in Array-2: "
+	msg_5 : .asciiz "Enter value: "
+	msg_6 : .asciiz "Enter entries of Array-1 in row major order one by one"
+	msg_7 : .asciiz "Enter entries of Array-2 in row major order one by one"
+	result : .asciiz "The resultant matrix is:"
+	not_valid : .asciiz "I am sorry to say but world is not always what we want it to be. The matrix multiplication you would try to perform is not possible. Nice Prediction na!! :P"
+	newline:	.asciiz		"\n"
+	blank:	.asciiz		"  "
+	array1_row : .word 0
+	array1_col : .word 0
+	array2_row : .word 0
+	array2_col : .word 0
+	array1 : .space 128
+	array2 : .space 128
+	array3 : .space 128
+#================================================================
+#Program code
+.text
+	.globl main
+
+	main:
+		#print message string
+		li $v0, 4
+		la $a0, msg_1			#2nd argument is the pointer to the string
+		syscall
+
+		#scan int
+		li $v0, 5
+		syscall
+		move $t0,$v0
+		sw $t0, array1_row		#store number of rows in Array-1 in array1_row
+
+		#print message string
+		li $v0, 4
+		la $a0, msg_2			#2nd argument is the pointer to the string
+		syscall
+
+		#scan int
+		li $v0, 5
+		syscall
+		move $t0,$v0
+		sw $t0, array1_col		#store number of cols in Array-1 in array1_col
+
+		#print message string
+		li $v0, 4
+		la $a0, msg_3			#2nd argument is the pointer to the string
+		syscall
+
+		#scan int
+		li $v0, 5
+		syscall
+		move $t0,$v0
+		sw $t0, array2_row		#store number of rows in Array-2 in array2_row
+
+		#print message string
+		li $v0, 4
+		la $a0, msg_4			#2nd argument is the pointer to the string
+		syscall
+
+		#scan int
+		li $v0, 5
+		syscall
+		move $t0,$v0
+		sw $t0, array2_col		#store number of cols in Array-2 in array2_col
+
+		lw $t0, array1_col		#store # cols in array-1 in t0
+		lw $t1, array2_row		#store # rows in array-2 in t1
+
+		bne $t0, $t1, invalid	#multiplication is not possible
+
+		#print message string
+		li $v0, 4
+		la $a0, msg_6			#2nd argument is the pointer to the string
+		syscall
+
+		#print message string
+		li $v0, 4
+		la $a0, newline			#2nd argument is the pointer to the string
+		syscall
+
+		lw $t0, array1_row		#store # rows in array-1 in t0
+		lw $t1, array1_col		#store # cols in array-1 in t1
+
+		mul $t0, $t0, $t1       #t0 = m*n
+
+		li $t1,0
+		la $t2,array1 			#store pointer of array1 in t2
+
+	#loop to scan all the floating points in array-1
+	scan_array1:
+		ble $t0,$t1, print_array2		#if t0<t1
+
+		li	$v0, 4				#Code to print msg_5
+		la 	$a0, msg_5
+		syscall
+
+		li $v0, 6				#code to scan float and save to memory
+		syscall
+		s.s $f0,($t2)
+
+		addi $t2,8				#store address of next memory
+		addi $t1,1				#increment loop count
+
+		j scan_array1
+
+	print_array2:
+		#print message string
+		li $v0, 4
+		la $a0, msg_7			#2nd argument is the pointer to the string
+		syscall
+
+		#print message string
+		li $v0, 4
+		la $a0, newline			#2nd argument is the pointer to the string
+		syscall
+
+		lw $t0, array2_row		#store # rows in array-2 in t0
+		lw $t1, array2_col		#store # cols in array-2 in t1
+
+		mul $t0, $t0, $t1       #t0 = m*n
+
+		li $t1,0
+		la $t2,array2 			#store pointer of array2 in t2
+
+	#loop to scan all the floating points in array-2
+	scan_array2:
+		ble $t0,$t1, multiply	#if t0<t1
+
+		li	$v0, 4				#Code to print msg_5
+		la 	$a0, msg_5
+		syscall
+
+		li $v0, 6				#code to scan float and save to memory
+		syscall
+		s.s $f0,($t2)
+
+		addi $t2,8				#store address of next memory
+		addi $t1,1				#increment loop count
+
+		j scan_array2
+
+	multiply:
+		lw $t0, array1_row		#store # rows in array-1 in t0
+		#lw $t1, array1_col		#store # cols in array-1 in t1
+		lw $t2, array2_row		#store # rows in array-2 in t2
+		lw $t3, array2_col		#store # cols in array-2 in t3
+		li $t4,0				#i=t4=c
+		la $t5, array3 			#store pointer of array3 in t5
+		la $t8, array1 			#store pointer of array1 in t8
+		la $t9, array2 			#store pointer of array2 in t9
+		li $s3, 1
+		li $s4, 8
+		sub $t5, $t5, $s4
+	
+	outer_loop:
+		ble	$t0, $t4, print_array3
+		addi $t4, $t4, 1
+		sub $s5, $t4, $s3
+		li	$t6, 0				#j=t6=d
+	inner_loop:
+		ble	$t3, $t6, outer_loop
+		addi $t5, $t5, 8
+		addi $t6, $t6, 1
+		sub $s6, $t6, $s3
+		li	$t7, 0				#k=t7
+		li.s	$f1, 0.0				
+	inside_loop:
+		ble	$t2, $t7, inner_loop
+		addi $t7, $t7, 1
+		sub $s7, $t7, $s3
+
+		mul $s1, $s5, $t2
+		add $s1, $s1, $s7
+		mul $s1, $s1, $s4
+		add $t8, $t8, $s1
+		l.s $f2, ($t8)
+
+		la $t8, array1 			#store pointer of array3 in t5
+
+		mul $s1, $s7, $t3		
+		add $s1, $s1, $s6
+		mul $s1, $s1, $s4
+		add $t9, $t9, $s1
+		l.s $f3, ($t9)
+
+		mul.s $f3, $f2, $f3
+		add.s $f1, $f1, $f3
+		s.s   $f1, ($t5)
+		#addi $t5, $t5, 8
+		la $t9, array2 
+		j inside_loop
+
+	print_array3:
+		#print message string
+		li $v0, 4
+		la $a0, result			#2nd argument is the pointer to the string
+		syscall
+
+		#print message string
+		li $v0, 4
+		la $a0, newline			#2nd argument is the pointer to the string
+		syscall
+
+		la $t5, array3 			#store pointer of array3 in t5
+		mul $t4, $t0, $t3
+		li $t1, 0  
+		li $t7, 1
+
+	while:
+		ble $t4, $t1, exit
+		#print ($t5) here
+		l.s $f12, ($t5)
+		li $v0, 2
+		syscall
+
+		beq $t7, $t3, print_newline
+
+		#print message string
+		li $v0, 4
+		la $a0, blank			#2nd argument is the pointer to the string
+		syscall
+		j resume
+
+	print_newline:
+		#print message string
+		li $v0, 4
+		la $a0, newline			#2nd argument is the pointer to the string
+		syscall
+		li $t7, 0
+
+	resume:
+		addi $t5, $t5, 8
+		addi $t1, $t1, 1
+		addi $t7, $t7, 1
+		j	while
+
+	invalid:
+		#print message string
+		li $v0, 4
+		la $a0, not_valid			#2nd argument is the pointer to the string
+		syscall
+
+	exit: 
+		#exit call
+		li $v0, 10
+		syscall
+
+
+
+
+

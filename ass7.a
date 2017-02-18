@@ -1,3 +1,7 @@
+#Note: Enter the entries of array in ascending order(as given in question, sorted array is given as an input).
+#This program will print the leftmost index(if key is found) starting from 0. So, if array is 1,2,3,4 and
+#search key is 3, it would print 2(and not 3)  
+
 #Data Declarations
 .data
 	msg_1 : .asciiz "Enter Number of integers in the array: "
@@ -8,6 +12,7 @@
 	space : .asciiz " "
 	array_size : .word 0
 	key : .word 0
+	return : .word -1
 	array : .word 0
 #=========================================================================================
 #Program code
@@ -94,8 +99,8 @@
 
 		not_found:
 			#print message string
-			li $v0, 4
-			la $a0, msg_5			#2nd argument is the pointer to the string
+			li $v0, 1
+			lw $a0, return			#2nd argument is the pointer to the string
 			syscall
 			j exit
 
