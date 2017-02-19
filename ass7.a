@@ -1,6 +1,7 @@
 #Note: Enter the entries of array in ascending order(as given in question, sorted array is given as an input).
 #This program will print the leftmost index(if key is found) starting from 0. So, if array is 1,2,3,4 and
 #search key is 3, it would print 2(and not 3)  
+#It'll print '-1' if the query is not found
 
 #Data Declarations
 .data
@@ -8,7 +9,6 @@
 	msg_2 : .asciiz "Enter next integer: "
 	msg_3 : .asciiz "Enter the key to search: "
 	msg_4 : .asciiz "Leftmost index of the integer: "
-	msg_5 : .asciiz "Key not found"
 	space : .asciiz " "
 	array_size : .word 0
 	key : .word 0
