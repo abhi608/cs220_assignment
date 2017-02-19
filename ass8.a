@@ -15,9 +15,9 @@
 	array1_col : .word 0
 	array2_row : .word 0
 	array2_col : .word 0
-	array1 : .space 128
-	array2 : .space 128
-	array3 : .space 128
+	array1 : .space 512
+	array2 : .space 512
+	array3 : .space 512
 #================================================================
 #Program code
 .text
