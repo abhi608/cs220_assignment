@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "/home/deepak/6th sem/CS220A/Assignments/blink/blinkTest_isim_beh.exe" -prj "/home/deepak/6th sem/CS220A/Assignments/blink/blinkTest_beh.prj" "work.blinkTest" "work.glbl" 

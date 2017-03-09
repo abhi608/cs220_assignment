@@ -1,0 +1,10 @@
+Command line:
+   blinkTest_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  39396
+
+Fri Mar 10 03:07:59 2017
+
+
+ Elaboration Time: 0.02 sec

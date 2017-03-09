@@ -1,0 +1,10 @@
+xst -intstyle ise -ifn "/home/deepak/6th sem/CS220A/Assignments/blink/blink.xst" -ofn "/home/deepak/6th sem/CS220A/Assignments/blink/blink.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s500e-fg320-4 "blink.ngc" blink.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o blink_map.ncd blink.ngd blink.pcf 
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o blink_map.ncd blink.ngd blink.pcf 
+xst -intstyle ise -ifn "/home/deepak/6th sem/CS220A/Assignments/blink/blink.xst" -ofn "/home/deepak/6th sem/CS220A/Assignments/blink/blink.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc blink.ucf -p xc3s500e-fg320-4 "blink.ngc" blink.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o blink_map.ncd blink.ngd blink.pcf 
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o blink_map.ncd blink.ngd blink.pcf 
+par -w -intstyle ise -ol high -t 1 blink_map.ncd blink.ncd blink.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml blink.twx blink.ncd -o blink.twr blink.pcf -ucf blink.ucf 
