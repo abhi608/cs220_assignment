@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/deepak/6th sem/CS220A/Assignments/LCD/TestLCD.ncd
+OUTFILE=/home/deepak/6th sem/CS220A/Assignments/LCD/TestLCD.bit
+FAMILY=Spartan3E
+PART=xc3s500e-4fg320
+WORKINGDIR=/home/deepak/6th sem/CS220A/Assignments/LCD
+LICENSE=WebPack
+USER_INFO=211321521_0_0_331

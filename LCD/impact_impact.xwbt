@@ -1,0 +1,8 @@
+INTSTYLE=impact
+INFILE=/home/deepak/6th sem/CS220A/Assignments/LCD/impact.xsl
+OUTFILE=/home/deepak/6th sem/CS220A/Assignments/LCD/impact.xsl
+FAMILY=None
+PART=None
+WORKINGDIR=/home/deepak/6th sem/CS220A/Assignments/LCD
+LICENSE=iMPACT
+USER_INFO=iMPACT
