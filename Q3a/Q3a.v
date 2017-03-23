@@ -31,7 +31,7 @@ module eq2( input [1:0] a,
 	 assign ledpin = temp1 & temp2;
 endmodule
 
-module eq1( inout x,
+module eq1( input x,
 				input y,
 				output isEqual
     );

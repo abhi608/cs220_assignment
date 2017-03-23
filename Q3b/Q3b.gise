@@ -92,6 +92,10 @@
     <transform xil_pn:end_ts="1490274030" xil_pn:in_ck="-5269578574575518829" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1490274030">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="Q3b.v"/>
       <outfile xil_pn:name="Q3b_test.v"/>
     </transform>
@@ -110,13 +114,21 @@
     <transform xil_pn:end_ts="1490274030" xil_pn:in_ck="-5269578574575518829" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1490274030">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="Q3b.v"/>
       <outfile xil_pn:name="Q3b_test.v"/>
     </transform>
     <transform xil_pn:end_ts="1490274032" xil_pn:in_ck="-5269578574575518829" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="958163407791369817" xil_pn:start_ts="1490274030">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="Q3b_test_beh.prj"/>
       <outfile xil_pn:name="Q3b_test_isim_beh.exe"/>
@@ -128,6 +140,9 @@
     <transform xil_pn:end_ts="1490274032" xil_pn:in_ck="749059184206669831" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="2944909280573630496" xil_pn:start_ts="1490274032">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="Q3b_test_isim_beh.wdb"/>
       <outfile xil_pn:name="isim.cmd"/>
       <outfile xil_pn:name="isim.log"/>
