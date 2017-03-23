@@ -1,0 +1,29 @@
+Command line:
+   Q3a_test_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  42638
+
+Thu Mar 23 18:16:19 2017
+
+
+ Elaboration Time: 0.01 sec
+
+ Current Memory Usage: 196.387 Meg
+
+ Total Signals          : 27
+ Total Nets             : 24
+ Total Signal Drivers   : 12
+ Total Blocks           : 5
+ Total Primitive Blocks : 3
+ Total Processes        : 15
+ Total Traceable Variables  : 20
+ Total Scalar Nets and Variables : 108
+Total Line Count : 36
+
+ Total Simulation Time: 33.3 sec
+
+ Current Memory Usage: 271.888 Meg
+
+Thu Mar 23 18:16:52 2017
+
