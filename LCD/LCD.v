@@ -126,7 +126,7 @@ case (count [26:21])	// as top 6 bits change
 // Characters are then given out, the cursor will advance to the right 
 30: code <= 6'h24; // O 
 31: code <= 6'h2F;
-32: code <= 6'h26; // r 
+32: code <= 6'h27; // r 
 33: code <= 6'h22; 
 34: code <= 6'h26; // g 
 35: code <= 6'h27; 

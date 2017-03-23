@@ -1,0 +1,17 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Thu Mar 23 17:35:05 2017
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "push1" LOCATE = SITE "H13" LEVEL 1;
+COMP "push2" LOCATE = SITE "V4" LEVEL 1;
+COMP "clk" LOCATE = SITE "C9" LEVEL 1;
+COMP "no<0>" LOCATE = SITE "H18" LEVEL 1;
+COMP "no<1>" LOCATE = SITE "N17" LEVEL 1;
+COMP "no<2>" LOCATE = SITE "L13" LEVEL 1;
+COMP "no<3>" LOCATE = SITE "L14" LEVEL 1;
+COMP "ledpin" LOCATE = SITE "F12" LEVEL 1;
+NET "clk_BUFGP/IBUFG" BEL "clk_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
+NET "clk_BUFGP/IBUFG" PERIOD = 20 ns HIGH 50%;
+SCHEMATIC END;
+

@@ -1,0 +1,12 @@
+# clock signal for 50 MHz
+#NET "clk" LOC = C9 | IOSTANDARD = LVCMOS33;
+#NET "clk" PERIOD = 20.0ns HIGH 50%;
+
+# two 2-bit numbers
+NET "a<0>" LOC = H18 | IOSTANDARD = LVTTL |PULLUP;
+NET "a<1>" LOC = N17 | IOSTANDARD = LVTTL |PULLUP;
+NET "b<0>" LOC = L13 | IOSTANDARD = LVTTL |PULLUP;
+NET "b<1>" LOC = L14 | IOSTANDARD = LVTTL |PULLUP;
+
+# output for LED
+NET "ledpin" LOC = F12 | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8;

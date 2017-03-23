@@ -1,0 +1,9 @@
+[Inputs]
+y
+[Outputs]
+isEqual
+[BiDir]
+x
+[ATTRIBUTES]
+VeriModel eq1
+

@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/deepak/6th sem/CS220A/Assignments/blink/blink.ncd
+OUTFILE=/home/deepak/6th sem/CS220A/Assignments/blink/blink.bit
+FAMILY=Spartan3E
+PART=xc3s500e-4fg320
+WORKINGDIR=/home/deepak/6th sem/CS220A/Assignments/blink
+LICENSE=WebPack
+USER_INFO=211321521_0_0_331

@@ -1,0 +1,11 @@
+
+
+
+// Instantiate the module
+eq1 instance_name (
+    .x(x), 
+    .y(y), 
+    .isEqual(isEqual)
+    );
+
+

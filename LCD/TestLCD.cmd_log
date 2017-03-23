@@ -10,3 +10,9 @@ map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o TestLCD
 par -w -intstyle ise -ol high -t 1 TestLCD_map.ncd TestLCD.ncd TestLCD.pcf 
 trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml TestLCD.twx TestLCD.ncd -o TestLCD.twr TestLCD.pcf 
 bitgen -intstyle ise -f TestLCD.ut TestLCD.ncd 
+xst -intstyle ise -ifn "/home/deepak/6th sem/CS220A/Assignments/LCD/TestLCD.xst" -ofn "/home/deepak/6th sem/CS220A/Assignments/LCD/TestLCD.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s500e-fg320-4 "TestLCD.ngc" TestLCD.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o TestLCD_map.ncd TestLCD.ngd TestLCD.pcf 
+par -w -intstyle ise -ol high -t 1 TestLCD_map.ncd TestLCD.ncd TestLCD.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml TestLCD.twx TestLCD.ncd -o TestLCD.twr TestLCD.pcf 
+bitgen -intstyle ise -f TestLCD.ut TestLCD.ncd 

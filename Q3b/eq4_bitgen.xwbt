@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/deepak/6thSem/CS220A/Assignments/Q3b/eq4.ncd
+OUTFILE=/home/deepak/6thSem/CS220A/Assignments/Q3b/eq4.bit
+FAMILY=Spartan3E
+PART=xc3s500e-4fg320
+WORKINGDIR=/home/deepak/6thSem/CS220A/Assignments/Q3b
+LICENSE=WebPack
+USER_INFO=211321521_0_0_331

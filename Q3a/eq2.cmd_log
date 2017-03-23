@@ -1,0 +1,35 @@
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.syr" 
+vhdtdtfi -lang verilog -prj Q3a -o /home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.tfi -lib work /home/deepak/6thSem/CS220A/Assignments/Q3a//Q3a.v -module eq2 -template /opt/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Q3a.ucf -p xc3s500e-fg320-4 eq2.ngc eq2.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Q3a.ucf -p xc3s500e-fg320-4 eq2.ngc eq2.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o eq2_map.ncd eq2.ngd eq2.pcf 
+par -w -intstyle ise -ol high -t 1 eq2_map.ncd eq2.ncd eq2.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml eq2.twx eq2.ncd -o eq2.twr eq2.pcf -ucf Q3a.ucf 
+bitgen -intstyle ise -f eq2.ut eq2.ncd 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq2.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Q3a.ucf -p xc3s500e-fg320-4 eq2.ngc eq2.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o eq2_map.ncd eq2.ngd eq2.pcf 
+par -w -intstyle ise -ol high -t 1 eq2_map.ncd eq2.ncd eq2.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml eq2.twx eq2.ncd -o eq2.twr eq2.pcf -ucf Q3a.ucf 
+bitgen -intstyle ise -f eq2.ut eq2.ncd 

@@ -1,0 +1,11 @@
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq1.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq1.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq1.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq1.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq1.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq1.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq1.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq1.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq1.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq1.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq1.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq1.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq1.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/Q3a/eq1.syr" 
+vhdtdtfi -lang verilog -prj Q3a -o /home/deepak/6thSem/CS220A/Assignments/Q3a/eq1.tfi -lib work /home/deepak/6thSem/CS220A/Assignments/Q3a//Q3a.v -module eq1 -template /opt/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+vhdtdtfi -lang verilog -prj Q3a -o /home/deepak/6thSem/CS220A/Assignments/Q3a/eq1.tfi -lib work /home/deepak/6thSem/CS220A/Assignments/Q3a//Q3a.v -module eq1 -template /opt/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+vhdtdtfi -lib work /home/deepak/6thSem/CS220A/Assignments/Q3a/Q3a.v -lang verilog -prj Q3a -o eq1.spl -module eq1 -template /opt/Xilinx/14.7/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e eq1.spl /home/deepak/6thSem/CS220A/Assignments/Q3a/eq1.sym 
