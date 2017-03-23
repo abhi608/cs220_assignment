@@ -22,7 +22,7 @@
 // 
 ////////////////////////////////////////////////////////////////////////////////
 
-module Q3a_test;
+module Q3b_test;
 
 	// Inputs
 	reg [3:0] no;
@@ -61,20 +61,56 @@ module Q3a_test;
 		push2 = 0;
 		no = 4'b1010;
 		#10 clk = !clk;
+		#10 clk = !clk;
 		push2 = 1;
 		push1 = 0;
 		no = 4'b1010;
-		#10 clk = !clk;
 		
+		#10 clk = !clk;
+		#10 clk = !clk;
 		push1 = 1;
 		push2 = 0;
 		no = 4'b1011;
 		#10 clk = !clk;
+		#10 clk = !clk;
 		push2 = 1;
 		push1 = 0;
 		no = 4'b1010;
+		
 		#10 clk = !clk;
+		#10 clk = !clk;
+		push1 = 1;
+		push2 = 0;
+		no = 4'b0011;
+		#10 clk = !clk;
+		#10 clk = !clk;
+		push2 = 1;
+		push1 = 0;
+		no = 4'b0011;
+		
+		#10 clk = !clk;
+		#10 clk = !clk;
+		push1 = 1;
+		push2 = 0;
+		no = 4'b0101;
+		#10 clk = !clk;
+		#10 clk = !clk;
+		push2 = 1;
+		push1 = 0;
+		no = 4'b0010;
+		
+		#10 clk = !clk;
+		#10 clk = !clk;
+		push1 = 1;
+		push2 = 0;
+		no = 4'b0101;
+		#10 clk = !clk;
+		#10 clk = !clk;
+		push2 = 1;
+		push1 = 0;
+		no = 4'b0101;
 
+		#10 clk = !clk;
 	end
 endmodule
 

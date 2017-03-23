@@ -1,5 +1,5 @@
 ISim log file
-Running: /home/deepak/6thSem/CS220A/Assignments/Q3b/Q3a_test_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/deepak/6thSem/CS220A/Assignments/Q3b/Q3a_test_isim_beh.wdb 
+Running: /home/deepak/6thSem/CS220A/Assignments/Q3b/Q3b_test_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/deepak/6thSem/CS220A/Assignments/Q3b/Q3b_test_isim_beh.wdb 
 ISim P.20131013 (signature 0xfbc00daa)
 WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
@@ -11,5 +11,5 @@ Time resolution is 1 ps
 # run 5000000000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-Stopped at time : 486604210 ns : File "/home/deepak/6thSem/CS220A/Assignments/Q3b/Q3b.v" Line 39
+Stopped at time : 232406470 ns : File "/home/deepak/6thSem/CS220A/Assignments/Q3b/Q3b_test.v" Line 80
 # exit 0

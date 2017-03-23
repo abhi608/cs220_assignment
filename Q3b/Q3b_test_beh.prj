@@ -1,0 +1,3 @@
+verilog work "Q3b.v"
+verilog work "Q3b_test.v"
+verilog work "/opt/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v"
