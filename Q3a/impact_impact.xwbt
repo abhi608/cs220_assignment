@@ -1,0 +1,8 @@
+INTSTYLE=impact
+INFILE=/home/deepak/6thSem/CS220A/Assignments/Q3a/impact.xsl
+OUTFILE=/home/deepak/6thSem/CS220A/Assignments/Q3a/impact.xsl
+FAMILY=Multiple
+PART=Multiple
+WORKINGDIR=/home/deepak/6thSem/CS220A/Assignments/Q3a
+LICENSE=iMPACT
+USER_INFO=iMPACT

@@ -175,12 +175,10 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1490270690" xil_pn:in_ck="98000746" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="8224970778001906044" xil_pn:start_ts="1490270679">
+    <transform xil_pn:end_ts="1490359458" xil_pn:in_ck="98000746" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="8224970778001906044" xil_pn:start_ts="1490359445">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
       <outfile xil_pn:name="eq4.lso"/>
@@ -198,20 +196,18 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1490270699" xil_pn:in_ck="-7985594542527396094" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-5678456484001519540" xil_pn:start_ts="1490270690">
+    <transform xil_pn:end_ts="1490359465" xil_pn:in_ck="-7985594542527396094" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-5678456484001519540" xil_pn:start_ts="1490359458">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="_ngo"/>
       <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
       <outfile xil_pn:name="eq4.bld"/>
       <outfile xil_pn:name="eq4.ngd"/>
       <outfile xil_pn:name="eq4_ngdbuild.xrpt"/>
     </transform>
-    <transform xil_pn:end_ts="1490270709" xil_pn:in_ck="-7985594542527396093" xil_pn:name="TRANEXT_map_spartan3" xil_pn:prop_ck="-5849673150125579957" xil_pn:start_ts="1490270699">
+    <transform xil_pn:end_ts="1490359473" xil_pn:in_ck="-7985594542527396093" xil_pn:name="TRANEXT_map_spartan3" xil_pn:prop_ck="-5849673150125579957" xil_pn:start_ts="1490359465">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
@@ -224,10 +220,9 @@
       <outfile xil_pn:name="eq4_summary.xml"/>
       <outfile xil_pn:name="eq4_usage.xml"/>
     </transform>
-    <transform xil_pn:end_ts="1490270728" xil_pn:in_ck="-2559185167152193636" xil_pn:name="TRANEXT_par_spartan3" xil_pn:prop_ck="-5563652517805085498" xil_pn:start_ts="1490270709">
+    <transform xil_pn:end_ts="1490359487" xil_pn:in_ck="-2559185167152193636" xil_pn:name="TRANEXT_par_spartan3" xil_pn:prop_ck="-5563652517805085498" xil_pn:start_ts="1490359473">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
       <outfile xil_pn:name="eq4.ncd"/>
       <outfile xil_pn:name="eq4.pad"/>
@@ -239,10 +234,9 @@
       <outfile xil_pn:name="eq4_pad.txt"/>
       <outfile xil_pn:name="eq4_par.xrpt"/>
     </transform>
-    <transform xil_pn:end_ts="1490270744" xil_pn:in_ck="134924008429" xil_pn:name="TRANEXT_bitFile_spartan3e" xil_pn:prop_ck="-7817169320884990698" xil_pn:start_ts="1490270728">
+    <transform xil_pn:end_ts="1490359493" xil_pn:in_ck="134924008429" xil_pn:name="TRANEXT_bitFile_spartan3e" xil_pn:prop_ck="-7817169320884990698" xil_pn:start_ts="1490359487">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
       <outfile xil_pn:name="eq4.bgn"/>
       <outfile xil_pn:name="eq4.bit"/>
@@ -252,10 +246,13 @@
       <outfile xil_pn:name="webtalk.log"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
     </transform>
-    <transform xil_pn:end_ts="1490270728" xil_pn:in_ck="-7985594542527396225" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416186" xil_pn:start_ts="1490270724">
+    <transform xil_pn:end_ts="1490359521" xil_pn:in_ck="134923995575" xil_pn:name="TRAN_configureTargetDevice" xil_pn:prop_ck="5582947192412673156" xil_pn:start_ts="1490359519">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
+    </transform>
+    <transform xil_pn:end_ts="1490359487" xil_pn:in_ck="-7985594542527396225" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416186" xil_pn:start_ts="1490359484">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
       <outfile xil_pn:name="eq4.twr"/>
       <outfile xil_pn:name="eq4.twx"/>
