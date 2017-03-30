@@ -33,6 +33,9 @@ module add4(input [3:0] a,
 			output carry
 	);
 	 wire c;
+	 wire tmp0;
+	 wire tmp1;
+	 wire tmp2;
 	 assign c = 1'b0;
 	 add1 sum0(.x(a[0]), .y(b[0]), .cin(cin), .s(sum[0]), .cout(tmp0));
 	 add1 sum1(.x(a[1]), .y(b[1]), .cin(tmp0), .s(sum[1]), .cout(tmp1));

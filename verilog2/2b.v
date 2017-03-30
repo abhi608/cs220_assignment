@@ -22,27 +22,31 @@
 // 
 ////////////////////////////////////////////////////////////////////////////////
 
-module test1;
-	reg [3:0] x;
-	reg [3:0] y;
-	wire [3:0] sum;
-	wire carry;
+module test2;
+	reg [3:0] init;
+	reg set;
+	reg reset;
+	wire [3:0] out;
 	integer count;
-	add4 instance(.a(x), .b(y), .sum(sum), .carry(carry));
+
+	count15 instance(.init(init), .set(set), .reset(reset), .out(out));
 
 	initial begin
-		x = 0;
-		y = 0;
+		init = 0;
+		set = 0;
+		reset = 0;
+		out = 0;
 	end
 
 	initial begin
-		$monitor("[sum, carry] of %b and %b  = [%b, %b]", x, y, sum, carry);
+		$monitor("[init, set, reset, out] = [%b, %b, %b, %b]", init, set, reset, out);
 	end
 
-	always @(x or y)
+	always @(set or reset or init)
 		begin
-			for(count=0; count < 256; count=count+1)
-				#1 {x,y} = count;
-			#5 $stop;
+			#20 reset <= 1;
+			#25 set <= 1;
+			for(count=0; count < 16; count=count+1)
+				#23 init <= count;
 		end
 endmodule
