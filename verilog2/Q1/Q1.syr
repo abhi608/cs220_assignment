@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.06 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.06 secs
  
 --> 
 Reading design: Q1.prj
@@ -143,14 +143,6 @@ Module <add1> is correct for synthesis.
 Analyzing module <printLCD> in library <work>.
 Module <printLCD> is correct for synthesis.
  
-    Set user-defined property "LOC =  D16" for signal <sf_e> in unit <printLCD>.
-    Set user-defined property "LOC =  M18" for signal <e> in unit <printLCD>.
-    Set user-defined property "LOC =  L18" for signal <rs> in unit <printLCD>.
-    Set user-defined property "LOC =  L17" for signal <rw> in unit <printLCD>.
-    Set user-defined property "LOC =  M15" for signal <d> in unit <printLCD>.
-    Set user-defined property "LOC =  P17" for signal <c> in unit <printLCD>.
-    Set user-defined property "LOC =  R16" for signal <b> in unit <printLCD>.
-    Set user-defined property "LOC =  R15" for signal <a> in unit <printLCD>.
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -168,9 +160,9 @@ Synthesizing Unit <printLCD>.
     Found 1-bit register for signal <rs>.
     Found 1-bit register for signal <rw>.
     Found 6-bit register for signal <code>.
-    Found 6-bit adder for signal <code$addsub0000> created at line 99.
-    Found 4-bit comparator lessequal for signal <code$cmp_le0000> created at line 91.
-    Found 6-bit addsub for signal <code$mux0000>.
+    Found 6-bit addsub for signal <code$addsub0000>.
+    Found 6-bit adder for signal <code$addsub0001> created at line 231.
+    Found 4-bit comparator lessequal for signal <code$cmp_le0000> created at line 218.
     Found 27-bit up counter for signal <count>.
     Found 1-bit register for signal <refresh>.
     Summary:
@@ -183,7 +175,7 @@ Unit <printLCD> synthesized.
 
 Synthesizing Unit <add1>.
     Related source file is "Q1.v".
-    Found 1-bit adder carry out for signal <AUX_1$addsub0001> created at line 119.
+    Found 1-bit adder carry out for signal <AUX_1$addsub0001> created at line 256.
     Summary:
 	inferred   2 Adder/Subtractor(s).
 Unit <add1> synthesized.
@@ -191,22 +183,11 @@ Unit <add1> synthesized.
 
 Synthesizing Unit <add4>.
     Related source file is "Q1.v".
-WARNING:Xst:653 - Signal <cin> is used but never assigned. This sourceless signal will be automatically connected to value 0.
-WARNING:Xst:646 - Signal <c> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 Unit <add4> synthesized.
 
 
 Synthesizing Unit <Q1>.
     Related source file is "Q1.v".
-WARNING:Xst:1780 - Signal <sfe_e> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <sf_e> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <rw> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <rs> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <e> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <d> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <c> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <b1> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <a1> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
     Found 4-bit register for signal <a>.
     Found 4-bit register for signal <b>.
     Summary:
@@ -239,9 +220,6 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
-WARNING:Xst:2798 - Unit <printLCD> : LOC constraints attached to the following signals are ignored because these signals are not connected to the primary design IOs, the LOC constraint is already attached to these IOs, or the KEEP_HIERARCHY constraint is set to YES or SOFT. The signals are: a, b, c, d, e, rs, rw, sf_e.
-WARNING:Xst:1290 - Hierarchical block <print_1> is unconnected in block <Q1>.
-   It will be removed from the design.
 
 =========================================================================
 Advanced HDL Synthesis Report
@@ -264,51 +242,10 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:2677 - Node <count_21> of sequential type is unconnected in block <printLCD>.
-WARNING:Xst:2677 - Node <count_22> of sequential type is unconnected in block <printLCD>.
-WARNING:Xst:2677 - Node <count_23> of sequential type is unconnected in block <printLCD>.
-WARNING:Xst:2677 - Node <count_24> of sequential type is unconnected in block <printLCD>.
-WARNING:Xst:2677 - Node <count_25> of sequential type is unconnected in block <printLCD>.
-WARNING:Xst:2677 - Node <count_26> of sequential type is unconnected in block <printLCD>.
 
 Optimizing unit <Q1> ...
 
 Optimizing unit <printLCD> ...
-WARNING:Xst:2677 - Node <print_1/count_20> of sequential type is unconnected in block <Q1>.
-WARNING:Xst:2677 - Node <print_1/count_19> of sequential type is unconnected in block <Q1>.
-WARNING:Xst:2677 - Node <print_1/count_18> of sequential type is unconnected in block <Q1>.
-WARNING:Xst:2677 - Node <print_1/count_17> of sequential type is unconnected in block <Q1>.
-WARNING:Xst:2677 - Node <print_1/count_16> of sequential type is unconnected in block <Q1>.
-WARNING:Xst:2677 - Node <print_1/count_15> of sequential type is unconnected in block <Q1>.
-WARNING:Xst:2677 - Node <print_1/count_14> of sequential type is unconnected in block <Q1>.
-WARNING:Xst:2677 - Node <print_1/count_13> of sequential type is unconnected in block <Q1>.
-WARNING:Xst:2677 - Node <print_1/count_12> of sequential type is unconnected in block <Q1>.
-WARNING:Xst:2677 - Node <print_1/count_11> of sequential type is unconnected in block <Q1>.
-WARNING:Xst:2677 - Node <print_1/count_10> of sequential type is unconnected in block <Q1>.
-WARNING:Xst:2677 - Node <print_1/count_9> of sequential type is unconnected in block <Q1>.
-WARNING:Xst:2677 - Node <print_1/count_8> of sequential type is unconnected in block <Q1>.
-WARNING:Xst:2677 - Node <print_1/count_7> of sequential type is unconnected in block <Q1>.
-WARNING:Xst:2677 - Node <print_1/count_6> of sequential type is unconnected in block <Q1>.
-WARNING:Xst:2677 - Node <print_1/count_5> of sequential type is unconnected in block <Q1>.
-WARNING:Xst:2677 - Node <print_1/count_4> of sequential type is unconnected in block <Q1>.
-WARNING:Xst:2677 - Node <print_1/count_3> of sequential type is unconnected in block <Q1>.
-WARNING:Xst:2677 - Node <print_1/count_2> of sequential type is unconnected in block <Q1>.
-WARNING:Xst:2677 - Node <print_1/count_1> of sequential type is unconnected in block <Q1>.
-WARNING:Xst:2677 - Node <print_1/count_0> of sequential type is unconnected in block <Q1>.
-WARNING:Xst:2677 - Node <print_1/b> of sequential type is unconnected in block <Q1>.
-WARNING:Xst:2677 - Node <print_1/c> of sequential type is unconnected in block <Q1>.
-WARNING:Xst:2677 - Node <print_1/a> of sequential type is unconnected in block <Q1>.
-WARNING:Xst:2677 - Node <print_1/rw> of sequential type is unconnected in block <Q1>.
-WARNING:Xst:2677 - Node <print_1/rs> of sequential type is unconnected in block <Q1>.
-WARNING:Xst:2677 - Node <print_1/d> of sequential type is unconnected in block <Q1>.
-WARNING:Xst:2677 - Node <print_1/e> of sequential type is unconnected in block <Q1>.
-WARNING:Xst:2677 - Node <print_1/refresh> of sequential type is unconnected in block <Q1>.
-WARNING:Xst:2677 - Node <print_1/code_5> of sequential type is unconnected in block <Q1>.
-WARNING:Xst:2677 - Node <print_1/code_4> of sequential type is unconnected in block <Q1>.
-WARNING:Xst:2677 - Node <print_1/code_3> of sequential type is unconnected in block <Q1>.
-WARNING:Xst:2677 - Node <print_1/code_2> of sequential type is unconnected in block <Q1>.
-WARNING:Xst:2677 - Node <print_1/code_1> of sequential type is unconnected in block <Q1>.
-WARNING:Xst:2677 - Node <print_1/code_0> of sequential type is unconnected in block <Q1>.
 
 Mapping all equations...
 Building and optimizing final netlist ...
@@ -316,12 +253,18 @@ Found area constraint ratio of 100 (+ 5) on block Q1, actual ratio is 0.
 
 Final Macro Processing ...
 
+Processing Unit <Q1> :
+	Found 2-bit shift register for signal <print_1/e>.
+Unit <Q1> processed.
+
 =========================================================================
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 8
- Flip-Flops                                            : 8
+# Registers                                            : 47
+ Flip-Flops                                            : 47
+# Shift Registers                                      : 1
+ 2-bit shift register                                  : 1
 
 =========================================================================
 
@@ -347,20 +290,35 @@ Optimization Goal                  : Speed
 Keep Hierarchy                     : No
 
 Design Statistics
-# IOs                              : 8
+# IOs                              : 20
 
 Cell Usage :
-# BELS                             : 5
-#      LUT2                        : 1
-#      LUT4                        : 3
-#      MUXF5                       : 1
-# FlipFlops/Latches                : 8
+# BELS                             : 140
+#      GND                         : 1
+#      INV                         : 1
+#      LUT1                        : 26
+#      LUT2                        : 6
+#      LUT2_D                      : 1
+#      LUT3                        : 11
+#      LUT3_D                      : 1
+#      LUT4                        : 23
+#      LUT4_L                      : 2
+#      MUXCY                       : 31
+#      MUXF5                       : 3
+#      VCC                         : 1
+#      XORCY                       : 33
+# FlipFlops/Latches                : 48
+#      FD                          : 37
 #      FDE                         : 8
+#      FDR                         : 2
+#      FDS                         : 1
+# Shift Registers                  : 1
+#      SRL16                       : 1
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 7
+# IO Buffers                       : 19
 #      IBUF                        : 6
-#      OBUF                        : 1
+#      OBUF                        : 13
 =========================================================================
 
 Device utilization summary:
@@ -368,11 +326,13 @@ Device utilization summary:
 
 Selected Device : 3s500efg320-4 
 
- Number of Slices:                        4  out of   4656     0%  
- Number of Slice Flip Flops:              8  out of   9312     0%  
- Number of 4 input LUTs:                  4  out of   9312     0%  
- Number of IOs:                           8
- Number of bonded IOBs:                   8  out of    232     3%  
+ Number of Slices:                       41  out of   4656     0%  
+ Number of Slice Flip Flops:             48  out of   9312     0%  
+ Number of 4 input LUTs:                 72  out of   9312     0%  
+    Number used as logic:                71
+    Number used as Shift registers:       1
+ Number of IOs:                          20
+ Number of bonded IOBs:                  20  out of    232     8%  
  Number of GCLKs:                         1  out of     24     4%  
 
 ---------------------------
@@ -396,7 +356,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 8     |
+clk                                | BUFGP                  | 49    |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -407,14 +367,46 @@ Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: No path found
+   Minimum period: 9.126ns (Maximum Frequency: 109.577MHz)
    Minimum input arrival time before clock: 3.872ns
-   Maximum output required time after clock: 6.741ns
+   Maximum output required time after clock: 7.350ns
    Maximum combinational path delay: No path found
 
 Timing Detail:
 --------------
 All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 9.126ns (frequency: 109.577MHz)
+  Total number of paths / destination ports: 1346 / 44
+-------------------------------------------------------------------------
+Delay:               9.126ns (Levels of Logic = 11)
+  Source:            b_1 (FF)
+  Destination:       print_1/code_5 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: b_1 to print_1/code_5
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              2   0.591   0.622  b_1 (b_1)
+     LUT4:I0->O            5   0.704   0.668  add4_1/sum3/Madd_AUX_1_addsub0001_xor<0>111 (N01)
+     LUT3:I2->O            8   0.704   0.836  add4_1/sum2/Madd_AUX_1_addsub0001_xor<0>11 (sum_2_OBUF)
+     LUT3:I1->O            4   0.704   0.622  print_1/code_mux0000<3>221 (print_1/code_mux0001<1>_mand)
+     LUT3:I2->O            1   0.704   0.000  print_1/Maddsub_code_addsub0000_lut<0> (print_1/Maddsub_code_addsub0000_lut<0>)
+     MUXCY:S->O            1   0.464   0.000  print_1/Maddsub_code_addsub0000_cy<0> (print_1/Maddsub_code_addsub0000_cy<0>)
+     MUXCY:CI->O           1   0.059   0.000  print_1/Maddsub_code_addsub0000_cy<1> (print_1/Maddsub_code_addsub0000_cy<1>)
+     MUXCY:CI->O           1   0.059   0.000  print_1/Maddsub_code_addsub0000_cy<2> (print_1/Maddsub_code_addsub0000_cy<2>)
+     MUXCY:CI->O           1   0.059   0.000  print_1/Maddsub_code_addsub0000_cy<3> (print_1/Maddsub_code_addsub0000_cy<3>)
+     MUXCY:CI->O           0   0.059   0.000  print_1/Maddsub_code_addsub0000_cy<4> (print_1/Maddsub_code_addsub0000_cy<4>)
+     XORCY:CI->O           1   0.804   0.455  print_1/Maddsub_code_addsub0000_xor<5> (print_1/code_addsub0000<5>)
+     LUT3:I2->O            1   0.704   0.000  print_1/code_mux0000<0>1 (print_1/code_mux0000<0>1)
+     FDR:D                     0.308          print_1/code_5
+    ----------------------------------------
+    Total                      9.126ns (5.923ns logic, 3.203ns route)
+                                       (64.9% logic, 35.1% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
@@ -438,37 +430,37 @@ Offset:              3.872ns (Levels of Logic = 2)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 12 / 1
+  Total number of paths / destination ports: 39 / 12
 -------------------------------------------------------------------------
-Offset:              6.741ns (Levels of Logic = 3)
-  Source:            a_1 (FF)
-  Destination:       ledpin (PAD)
+Offset:              7.350ns (Levels of Logic = 3)
+  Source:            b_1 (FF)
+  Destination:       sum<3> (PAD)
   Source Clock:      clk rising
 
-  Data Path: a_1 to ledpin
+  Data Path: b_1 to sum<3>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q              1   0.591   0.595  a_1 (a_1)
-     LUT4:I0->O            1   0.704   0.420  add4_1/sum3/Madd_AUX_1_addsub0001_cy<0>126_SW0 (N3)
-     MUXF5:S->O            1   0.739   0.420  add4_1/sum3/Madd_AUX_1_addsub0001_cy<0>158_f5 (add4_1/sum3/Madd_AUX_1_addsub0001_cy<0>)
-     OBUF:I->O                 3.272          ledpin_OBUF (ledpin)
+     FDE:C->Q              2   0.591   0.622  b_1 (b_1)
+     LUT4:I0->O            5   0.704   0.637  add4_1/sum3/Madd_AUX_1_addsub0001_xor<0>111 (N01)
+     LUT4:I3->O            9   0.704   0.820  add4_1/sum3/Madd_AUX_1_addsub0001_xor<0>11 (print_1/Maddsub_code_addsub0000_lut<3>)
+     OBUF:I->O                 3.272          sum_3_OBUF (sum<3>)
     ----------------------------------------
-    Total                      6.741ns (5.306ns logic, 1.435ns route)
-                                       (78.7% logic, 21.3% route)
+    Total                      7.350ns (5.271ns logic, 2.079ns route)
+                                       (71.7% logic, 28.3% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 4.00 secs
-Total CPU time to Xst completion: 4.57 secs
+Total REAL time to Xst completion: 6.00 secs
+Total CPU time to Xst completion: 4.83 secs
  
 --> 
 
 
-Total memory usage is 515660 kilobytes
+Total memory usage is 516132 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   54 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
 Number of infos    :    1 (   0 filtered)
 

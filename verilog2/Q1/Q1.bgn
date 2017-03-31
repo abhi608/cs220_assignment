@@ -5,7 +5,7 @@ Loading device for application Rf_Device from file '3s500e.nph' in environment
    "Q1" is an NCD, version 3.2, device xc3s500e, package fg320, speed -4
 Opened constraints file Q1.pcf.
 
-Fri Mar 31 17:15:30 2017
+Fri Mar 31 19:47:30 2017
 
 /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/bitgen -intstyle ise -w -g DebugBitstream:No -g Binary:no -g CRC:Enable -g ConfigRate:1 -g ProgPin:PullUp -g DonePin:PullUp -g TckPin:PullUp -g TdiPin:PullUp -g TdoPin:PullUp -g TmsPin:PullUp -g UnusedPin:PullDown -g UserID:0xFFFFFFFF -g DCMShutdown:Disable -g StartUpClk:CClk -g DONE_cycle:4 -g GTS_cycle:5 -g GWE_cycle:6 -g LCK_cycle:NoWait -g Security:None -g DonePipe:Yes -g DriveDone:No Q1.ncd 
 
@@ -90,7 +90,22 @@ There were 0 CONFIG constraint(s) processed from Q1.pcf.
 
 
 Running DRC.
-DRC detected 0 errors and 0 warnings.
+WARNING:PhysDesignRules:781 - PULLDOWN on an active net. PULLDOWN of comp rs is
+   set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLDOWN on an active net. PULLDOWN of comp a1 is
+   set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLDOWN on an active net. PULLDOWN of comp b1 is
+   set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLDOWN on an active net. PULLDOWN of comp rw is
+   set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLDOWN on an active net. PULLDOWN of comp c is
+   set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLDOWN on an active net. PULLDOWN of comp d is
+   set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLDOWN on an active net. PULLDOWN of comp e is
+   set but the tri state is not configured. 
+DRC detected 0 errors and 7 warnings.  Please see the previously displayed
+individual error or warning messages for more details.
 Creating bit map...
 Saving bit stream in "Q1.bit".
 Bitstream generation is complete.

@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2017-03-31T17:56:57</DateModified>
+  <DateModified>2017-04-01T02:43:39</DateModified>
   <ModuleName>Q2</ModuleName>
-  <SummaryTimeStamp>2017-03-31T17:41:11</SummaryTimeStamp>
+  <SummaryTimeStamp>2017-03-31T17:59:55</SummaryTimeStamp>
   <SavedFilePath>/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/iseconfig/Q2.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2</ImplementationReportsDirectory>
+  <ImplementationReportsDirectory>/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/</ImplementationReportsDirectory>
   <DateInitialized>2017-03-31T17:16:05</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

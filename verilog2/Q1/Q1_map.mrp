@@ -9,28 +9,35 @@ Target Device  : xc3s500e
 Target Package : fg320
 Target Speed   : -4
 Mapper Version : spartan3e -- $Revision: 1.55 $
-Mapped Date    : Fri Mar 31 17:15:14 2017
+Mapped Date    : Fri Mar 31 19:47:04 2017
 
 Design Summary
 --------------
 Number of errors:      0
-Number of warnings:    0
+Number of warnings:   12
 Logic Utilization:
-  Number of Slice Flip Flops:             8 out of   9,312    1%
-  Number of 4 input LUTs:                 4 out of   9,312    1%
+  Number of Slice Flip Flops:            48 out of   9,312    1%
+  Number of 4 input LUTs:                45 out of   9,312    1%
 Logic Distribution:
-  Number of occupied Slices:              7 out of   4,656    1%
-    Number of Slices containing only related logic:       7 out of       7 100%
-    Number of Slices containing unrelated logic:          0 out of       7   0%
+  Number of occupied Slices:             48 out of   4,656    1%
+    Number of Slices containing only related logic:      48 out of      48 100%
+    Number of Slices containing unrelated logic:          0 out of      48   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:           4 out of   9,312    1%
-  Number of bonded IOBs:                  8 out of     232    3%
+  Total Number of 4 input LUTs:          71 out of   9,312    1%
+    Number used as logic:                44
+    Number used as a route-thru:         26
+    Number used as Shift registers:       1
+
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+
+  Number of bonded IOBs:                 20 out of     232    8%
   Number of BUFGMUXs:                     1 out of      24    4%
 
-Average Fanout of Non-Clock Nets:                1.88
+Average Fanout of Non-Clock Nets:                2.28
 
-Peak Memory Usage:  583 MB
-Total REAL time to MAP completion:  2 secs 
+Peak Memory Usage:  584 MB
+Total REAL time to MAP completion:  4 secs 
 Total CPU time to MAP completion:   2 secs 
 
 NOTES:
@@ -72,6 +79,25 @@ Section 1 - Errors
 
 Section 2 - Warnings
 --------------------
+WARNING:MapLib:23 - Short on signal sf_e detected.
+WARNING:MapLib:23 - Short on signal sf_e detected.
+WARNING:MapLib:23 - Short on signal sf_e detected.
+WARNING:MapLib:23 - Short on signal sf_e detected.
+WARNING:MapLib:23 - Short on signal sf_e detected.
+WARNING:PhysDesignRules:781 - PULLDOWN on an active net. PULLDOWN of comp rs is
+   set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLDOWN on an active net. PULLDOWN of comp a1 is
+   set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLDOWN on an active net. PULLDOWN of comp b1 is
+   set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLDOWN on an active net. PULLDOWN of comp rw is
+   set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLDOWN on an active net. PULLDOWN of comp c is
+   set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLDOWN on an active net. PULLDOWN of comp d is
+   set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLDOWN on an active net. PULLDOWN of comp e is
+   set but the tri state is not configured. 
 
 Section 3 - Informational
 -------------------------
@@ -84,9 +110,20 @@ INFO:LIT:244 - All of the single ended outputs in this design are using slew
 
 Section 4 - Removed Logic Summary
 ---------------------------------
+   1 block(s) removed
+   3 block(s) optimized away
 
 Section 5 - Removed Logic
 -------------------------
+Unused block "sf_e_PULLDOWN" (PULLDOWN) removed.
+
+Optimized Block(s):
+TYPE 		BLOCK
+GND 		XST_GND
+VCC 		XST_VCC
+
+To enable printing of redundant blocks removed and signals merged, set the
+detailed map report option and rerun map.
 
 Section 6 - IOB Properties
 --------------------------
@@ -95,7 +132,12 @@ Section 6 - IOB Properties
 | IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
 |                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
 +---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| a1                                 | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              | PULLDOWN | 0 / 0    |
+| b1                                 | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              | PULLDOWN | 0 / 0    |
+| c                                  | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              | PULLDOWN | 0 / 0    |
 | clk                                | IBUF             | INPUT     | LVCMOS33             |       |          |      |              |          | 0 / 0    |
+| d                                  | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              | PULLDOWN | 0 / 0    |
+| e                                  | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              | PULLDOWN | 0 / 0    |
 | ledpin                             | IOB              | OUTPUT    | LVTTL                |       | 8        | SLOW |              |          | 0 / 0    |
 | no<0>                              | IBUF             | INPUT     | LVTTL                |       |          |      |              | PULLUP   | 0 / 0    |
 | no<1>                              | IBUF             | INPUT     | LVTTL                |       |          |      |              | PULLUP   | 0 / 0    |
@@ -103,6 +145,13 @@ Section 6 - IOB Properties
 | no<3>                              | IBUF             | INPUT     | LVTTL                |       |          |      |              | PULLUP   | 0 / 0    |
 | push1                              | IBUF             | INPUT     | LVTTL                |       |          |      |              | PULLDOWN | 0 / 0    |
 | push2                              | IBUF             | INPUT     | LVTTL                |       |          |      |              | PULLDOWN | 0 / 0    |
+| rs                                 | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              | PULLDOWN | 0 / 0    |
+| rw                                 | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              | PULLDOWN | 0 / 0    |
+| sf_e                               | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          | 0 / 0    |
+| sum<0>                             | IOB              | OUTPUT    | LVTTL                |       | 8        | SLOW |              |          | 0 / 0    |
+| sum<1>                             | IOB              | OUTPUT    | LVTTL                |       | 8        | SLOW |              |          | 0 / 0    |
+| sum<2>                             | IOB              | OUTPUT    | LVTTL                |       | 8        | SLOW |              |          | 0 / 0    |
+| sum<3>                             | IOB              | OUTPUT    | LVTTL                |       | 8        | SLOW |              |          | 0 / 0    |
 +---------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Section 7 - RPMs

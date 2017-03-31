@@ -2,21 +2,20 @@
 <!--This is an ISE project configuration file.-->
 <!--It holds project specific layout data for the projectmgr plugin.-->
 <!--Copyright (c) 1995-2009 Xilinx, Inc.  All rights reserved.-->
-<Project version="2" owner="projectmgr" name="Q1" >
+<Project version="2" owner="projectmgr" name="Q2" >
    <!--This is an ISE project configuration file.-->
    <ItemView engineview="SynthesisOnly" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>
          <ClosedNodesVersion>2</ClosedNodesVersion>
-         <ClosedNode>/Q1 |home|deepak|6thSem|CS220A|Assignments|verilog2|Q1|Q1.v/add4_1 - add4</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>Q1 (/home/deepak/6thSem/CS220A/Assignments/verilog2/Q1/Q1.v)</SelectedItem>
+         <SelectedItem>Q2 (/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/Q2.v)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000000f6000000020000000000000000000000000200000064ffffffff000000810000000300000002000000f60000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000000a0000000020000000000000000000000000200000064ffffffff000000810000000300000002000000a00000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>Q1 (/home/deepak/6thSem/CS220A/Assignments/verilog2/Q1/Q1.v)</CurrentItem>
+      <CurrentItem>Q2 (/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/Q2.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -41,7 +40,7 @@
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000000000000001000000000000000000000000000000000000028a000000040101000100000000000000000000000064ffffffff0000008100000000000000040000005100000001000000000000002900000001000000000000008400000001000000000000018c0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>Q1.ucf</CurrentItem>
+      <CurrentItem>Q2.ucf</CurrentItem>
    </ItemView>
    <ItemView guiview="Library" >
       <ClosedNodes>
@@ -59,33 +58,33 @@
       <ClosedNodes>
          <ClosedNodesVersion>1</ClosedNodesVersion>
          <ClosedNode>Configure Target Device</ClosedNode>
-         <ClosedNode>Design Utilities/Compile HDL Simulation Libraries</ClosedNode>
+         <ClosedNode>Design Utilities</ClosedNode>
          <ClosedNode>Implement Design</ClosedNode>
+         <ClosedNode>Synthesize - XST</ClosedNode>
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem>Configure Target Device</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000e5000000010000000100000000000000000000000064ffffffff000000810000000000000001000000e50000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f4000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f40000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem>Configure Target Device</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>
          <ClosedNodesVersion>2</ClosedNodesVersion>
-         <ClosedNode>/Q1 |home|deepak|6thSem|CS220A|Assignments|verilog2|Q1|Q1.v</ClosedNode>
-         <ClosedNode>/Q1_test |home|deepak|6thSem|CS220A|Assignments|verilog2|Q1|Q1_test.v</ClosedNode>
+         <ClosedNode>/Q2_test |home|deepak|6thSem|CS220A|Assignments|verilog2|Q2|Q2_test.v</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>Q1_test (/home/deepak/6thSem/CS220A/Assignments/verilog2/Q1/Q1_test.v)</SelectedItem>
+         <SelectedItem>Q2_test (/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/Q2_test.v)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000000c2000000020000000000000000000000000200000064ffffffff000000810000000300000002000000c20000000100000003000000000000000100000003</ViewHeaderState>
-      <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>Q1_test (/home/deepak/6thSem/CS220A/Assignments/verilog2/Q1/Q1_test.v)</CurrentItem>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>Q2_test (/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/Q2_test.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -114,9 +113,12 @@
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem>Simulate Behavioral Model</CurrentItem>
    </ItemView>
+   <SourceProcessView>000000ff00000000000000020000014c0000011d01000000060100000002</SourceProcessView>
+   <CurrentView>Implementation</CurrentView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_UCF" guiview="Process" >
       <ClosedNodes>
          <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
          <SelectedItem/>
@@ -127,6 +129,4 @@
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem/>
    </ItemView>
-   <SourceProcessView>000000ff00000000000000020000014c0000011d01000000060100000002</SourceProcessView>
-   <CurrentView>Implementation</CurrentView>
 </Project>

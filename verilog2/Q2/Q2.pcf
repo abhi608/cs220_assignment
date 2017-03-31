@@ -1,13 +1,13 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Fri Mar 31 17:59:40 2017
+// Written by: Map P.20131013 on Fri Mar 31 19:10:35 2017
 //! **************************************************************************
 
 SCHEMATIC START;
 COMP "clk" LOCATE = SITE "C9" LEVEL 1;
-COMP "init<0>" LOCATE = SITE "H18" LEVEL 1;
-COMP "init<1>" LOCATE = SITE "N17" LEVEL 1;
-COMP "init<2>" LOCATE = SITE "L13" LEVEL 1;
-COMP "init<3>" LOCATE = SITE "L14" LEVEL 1;
+COMP "init<0>" LOCATE = SITE "L13" LEVEL 1;
+COMP "init<1>" LOCATE = SITE "L14" LEVEL 1;
+COMP "init<2>" LOCATE = SITE "H18" LEVEL 1;
+COMP "init<3>" LOCATE = SITE "N17" LEVEL 1;
 COMP "set" LOCATE = SITE "H13" LEVEL 1;
 COMP "reset" LOCATE = SITE "V4" LEVEL 1;
 COMP "out<0>" LOCATE = SITE "F12" LEVEL 1;

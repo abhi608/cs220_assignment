@@ -1,8 +1,23 @@
 Release 14.7 Drc P.20131013 (lin64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Fri Mar 31 17:15:30 2017
+Fri Mar 31 19:47:30 2017
 
 drc -z Q1.ncd Q1.pcf
 
-DRC detected 0 errors and 0 warnings.
+WARNING:PhysDesignRules:781 - PULLDOWN on an active net. PULLDOWN of comp rs is
+   set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLDOWN on an active net. PULLDOWN of comp a1 is
+   set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLDOWN on an active net. PULLDOWN of comp b1 is
+   set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLDOWN on an active net. PULLDOWN of comp rw is
+   set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLDOWN on an active net. PULLDOWN of comp c is
+   set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLDOWN on an active net. PULLDOWN of comp d is
+   set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLDOWN on an active net. PULLDOWN of comp e is
+   set but the tri state is not configured. 
+DRC detected 0 errors and 7 warnings.  Please see the previously displayed
+individual error or warning messages for more details.

@@ -31,6 +31,7 @@ module Q2(
 	assign set1 = set;
 	assign reset1 = reset;
 	assign init1 = init;
+	integer count = 0;
 	initial begin
 		out1 = 0;
 	end
@@ -40,7 +41,12 @@ module Q2(
 				out1 = init1;
 			if (reset1 == 1)
 				out1 = 0;
-			out1 = (out1 + 1) % 16;
+			if (count == 50000000)
+			begin
+				out1 = out1 + 1;
+				count = 0;
+			end
+			else count = count +1;
 	 	end
 	 	
 	assign out = out1;

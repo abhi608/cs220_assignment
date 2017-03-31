@@ -1,0 +1,8 @@
+INTSTYLE=impact
+INFILE=/home/deepak/6thSem/CS220A/Assignments/verilog2/Q1/impact.xsl
+OUTFILE=/home/deepak/6thSem/CS220A/Assignments/verilog2/Q1/impact.xsl
+FAMILY=Multiple
+PART=Multiple
+WORKINGDIR=/home/deepak/6thSem/CS220A/Assignments/verilog2/Q1
+LICENSE=iMPACT
+USER_INFO=iMPACT

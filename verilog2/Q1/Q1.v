@@ -22,10 +22,19 @@ module Q1(input [3:0] no,
 				input push1,
 				input push2,
 				input clk,
-				output ledpin
+				output [3:0] sum,
+				output ledpin,
+				output  sf_e,
+				output  e,
+				output  rs,
+				output  rw,
+				output  d,
+				output  c,
+				output  b1,
+				output  a1
     );
 reg [3:0] a,b;
-wire [3:0] sum;
+//wire [3:0] sum;
 wire carry;
 	always @(posedge clk)
 	begin
@@ -33,26 +42,25 @@ wire carry;
 			a = no;
 		else if(push2 == 1)
 			b = no;
-		end
-	add4 add4_1(.a(a[3:0]),.b(b[3:0]),.sum(sum),.carry(carry));
+	end
+	add4 add4_1(.a(a[3:0]),.b(b[3:0]),.sum(sum[3:0]),.carry(carry));
 	assign ledpin = carry;
-	wire sfe_e,e,rs,rw,d,c,b1,a1;
 	printLCD print_1(.value(sum[3:0]),.clk(clk),.sf_e(sf_e),.e(e),.rs(rs),.rw(rw),.d(d),.c(c),.b(b1),.a(a1));
-
+	
 endmodule
 
 module printLCD(value,clk, sf_e, e, rs, rw, d, c, b, a);
 
 input [3:0] value;
-input clk; // pin C9 is the 50-MHz on-board clock
-(* LOC = "D16" *) output reg sf_e; // 1 LCD access (0 strataFlash access)
-(* LOC = "M18" *) output reg e; // enable (1)
-(* LOC = "L18" *) output reg rs;	// Register Select (1 data bits for R/W)
-(* LOC = "L17" *) output reg rw;	// Read/Write 1/0
-(* LOC = "M15" *) output reg d;	// 4th data bits (to form a nibble)
-(* LOC = "P17" *) output reg c;	// 3rd data bits (to form a nibble)
-(* LOC = "R16" *) output reg b;	// 2nd data bits (to form a nibble)
-(* LOC = "R15" *) output reg a;	// 1st data bits (to form a nibble)
+input clk; 
+output reg sf_e; // 1 LCD access (0 strataFlash access)
+output reg e; // enable (1)
+output reg rs;	// Register Select (1 data bits for R/W)
+output reg rw;	// Read/Write 1/0
+output reg d;	// 4th data bits (to form a nibble)
+output reg c;	// 3rd data bits (to form a nibble)
+output reg b;	// 2nd data bits (to form a nibble)
+output reg a;	// 1st data bits (to form a nibble)
 
 reg [26:0] count = 0;	// 27-bit count, 0-(128M-1), over 2 secs
 reg [5:0] code;	// 6-bits different signals to give out
@@ -85,19 +93,26 @@ case (count [26:21])	// as top 6 bits change
 // Table 5-3 Clear Display, 00 and upper nibble 0000, 00 and lower nibble 0001 
 10: code <= 6'h00; // Clear Display, 00 and upper nibble 0000 
 11: code <= 6'h01; // then 00 and lower nibble 0001
+12: begin 
+	if (value <= 4'h9)
+	begin
+		code <= 6'h23;
+	end
+	else
+		code <= 6'h24;
+	end
+13: begin 
+	if (value <= 4'h9)
+	begin
+		code <= 6'h20 + value[3:0];
+	end
+	else
+		code <= 6'h20 + value[3:0] - 4'b1001;
+	end
 
 default: code <= 6'h10; // the restun-used time 
 endcase 
-if (value <= 4'h9)
-	begin
-		code <= 6'h23;
-		code <= 6'h20 + value;
-	end
-else
-	begin
-		code <= 6'h24;
-		code <= 6'h20 + value - 4'b1001;
-	end
+
 // refresh (enable) the LCD when bit 20 of the count is 1 
 // (it flips when counted upto 2M, and flips again after another 2M) 
 refresh <= count[ 20 ]; // flip rate about 25 (50MHz/2*21=2M) 
@@ -108,6 +123,7 @@ b <= code[1]; a <= code[0];
 end // always
 
 endmodule
+
 
 
 module add1(input x,
@@ -129,7 +145,7 @@ module add4(input [3:0] a,
 	 wire tmp1;
 	 wire tmp2;
 	 assign c = 1'b0;
-	 add1 sum0(.x(a[0]), .y(b[0]), .cin(cin), .s(sum[0]), .cout(tmp0));
+	 add1 sum0(.x(a[0]), .y(b[0]), .cin(c), .s(sum[0]), .cout(tmp0));
 	 add1 sum1(.x(a[1]), .y(b[1]), .cin(tmp0), .s(sum[1]), .cout(tmp1));
 	 add1 sum2(.x(a[2]), .y(b[2]), .cin(tmp1), .s(sum[2]), .cout(tmp2));
 	 add1 sum3(.x(a[3]), .y(b[3]), .cin(tmp2), .s(sum[3]), .cout(carry));
