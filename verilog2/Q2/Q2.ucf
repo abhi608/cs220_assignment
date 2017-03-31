@@ -1,0 +1,20 @@
+
+# two 2-bit numbers
+NET "init<0>" LOC = H18 | IOSTANDARD = LVTTL |PULLUP;
+NET "init<1>" LOC = N17 | IOSTANDARD = LVTTL |PULLUP;
+NET "init<2>" LOC = L13 | IOSTANDARD = LVTTL |PULLUP;
+NET "init<3>" LOC = L14 | IOSTANDARD = LVTTL |PULLUP;
+
+# output for LED
+NET "out<0>" LOC = F12 | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8;
+NET "out<1>" LOC = E12 | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8;
+NET "out<2>" LOC = E11 | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8;
+NET "out<3>" LOC = F11 | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8;
+
+# Push Button
+NET "set" LOC = H13 | IOSTANDARD = LVTTL |PULLDOWN; 
+NET "reset" LOC = V4 | IOSTANDARD = LVTTL |PULLDOWN;
+
+# clock signal for 50 MHz
+NET "clk" LOC = C9 | IOSTANDARD = LVCMOS33;
+NET "clk" PERIOD = 20.0ns HIGH 50%;

@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "/home/deepak/6thSem/CS220A/Assignments/verilog2/Q1/Q1_test_isim_beh.exe" -prj "/home/deepak/6thSem/CS220A/Assignments/verilog2/Q1/Q1_test_beh.prj" "work.Q1_test" "work.glbl" 

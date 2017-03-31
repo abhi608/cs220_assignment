@@ -1,0 +1,48 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to /home/deepak/6thSem/CS220A/Assignments/verilog2/Q1/xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.05 secs
+ 
+--> 
+Parameter xsthdpdir set to /home/deepak/6thSem/CS220A/Assignments/verilog2/Q1/xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.05 secs
+ 
+--> 
+WARNING:Xst:3164 - Option "-debug" found multiple times in the command line. Only the first occurence is considered.
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "Q1.v" in library work
+ERROR:HDLCompilers:26 - "Q1.v" line 35 unexpected token: 'add4'
+ERROR:HDLCompilers:26 - "Q1.v" line 35 unexpected token: '.'
+ERROR:HDLCompilers:26 - "Q1.v" line 35 expecting ';', found ','
+ERROR:HDLCompilers:26 - "Q1.v" line 35 expecting ';', found ','
+ERROR:HDLCompilers:26 - "Q1.v" line 35 expecting ';', found ','
+ERROR:HDLCompilers:26 - "Q1.v" line 35 expecting ';', found ')'
+ERROR:HDLCompilers:26 - "Q1.v" line 37 unexpected token: 'printLCD'
+ERROR:HDLCompilers:26 - "Q1.v" line 37 unexpected token: '.'
+ERROR:HDLCompilers:26 - "Q1.v" line 37 expecting ';', found ','
+ERROR:HDLCompilers:26 - "Q1.v" line 37 expecting ';', found ')'
+Module <Q1> compiled
+ERROR:HDLCompilers:26 - "Q1.v" line 43 expecting ';', found '['
+Module <printLCD> compiled
+Module <add1> compiled
+Module <add4> compiled
+Analysis of file <"add4.prj"> failed.
+--> 
+
+
+Total memory usage is 473608 kilobytes
+
+Number of errors   :   11 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

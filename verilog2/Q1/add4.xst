@@ -1,0 +1,5 @@
+set -tmpdir "/home/deepak/6thSem/CS220A/Assignments/verilog2/Q1/xst/projnav.tmp"
+set -xsthdpdir "/home/deepak/6thSem/CS220A/Assignments/verilog2/Q1/xst"
+elaborate
+-ifn add4.prj
+-ifmt mixed

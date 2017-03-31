@@ -1,0 +1,474 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.05 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.05 secs
+ 
+--> 
+Reading design: Q1.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "Q1.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "Q1"
+Output Format                      : NGC
+Target Device                      : xc3s500e-4-fg320
+
+---- Source Options
+Top Module Name                    : Q1
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "Q1.v" in library work
+Module <Q1> compiled
+Module <printLCD> compiled
+Module <add1> compiled
+Module <add4> compiled
+No errors in compilation
+Analysis of file <"Q1.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <Q1> in library <work>.
+
+Analyzing hierarchy for module <add4> in library <work>.
+
+Analyzing hierarchy for module <printLCD> in library <work>.
+
+Analyzing hierarchy for module <add1> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <Q1>.
+Module <Q1> is correct for synthesis.
+ 
+Analyzing module <add4> in library <work>.
+Module <add4> is correct for synthesis.
+ 
+Analyzing module <add1> in library <work>.
+Module <add1> is correct for synthesis.
+ 
+Analyzing module <printLCD> in library <work>.
+Module <printLCD> is correct for synthesis.
+ 
+    Set user-defined property "LOC =  D16" for signal <sf_e> in unit <printLCD>.
+    Set user-defined property "LOC =  M18" for signal <e> in unit <printLCD>.
+    Set user-defined property "LOC =  L18" for signal <rs> in unit <printLCD>.
+    Set user-defined property "LOC =  L17" for signal <rw> in unit <printLCD>.
+    Set user-defined property "LOC =  M15" for signal <d> in unit <printLCD>.
+    Set user-defined property "LOC =  P17" for signal <c> in unit <printLCD>.
+    Set user-defined property "LOC =  R16" for signal <b> in unit <printLCD>.
+    Set user-defined property "LOC =  R15" for signal <a> in unit <printLCD>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <printLCD>.
+    Related source file is "Q1.v".
+    Found 1-bit register for signal <a>.
+    Found 1-bit register for signal <b>.
+    Found 1-bit register for signal <c>.
+    Found 1-bit register for signal <d>.
+    Found 1-bit register for signal <e>.
+    Found 1-bit register for signal <rs>.
+    Found 1-bit register for signal <rw>.
+    Found 6-bit register for signal <code>.
+    Found 6-bit adder for signal <code$addsub0000> created at line 99.
+    Found 4-bit comparator lessequal for signal <code$cmp_le0000> created at line 91.
+    Found 6-bit addsub for signal <code$mux0000>.
+    Found 27-bit up counter for signal <count>.
+    Found 1-bit register for signal <refresh>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred  14 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred   1 Comparator(s).
+Unit <printLCD> synthesized.
+
+
+Synthesizing Unit <add1>.
+    Related source file is "Q1.v".
+    Found 1-bit adder carry out for signal <AUX_1$addsub0001> created at line 119.
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+Unit <add1> synthesized.
+
+
+Synthesizing Unit <add4>.
+    Related source file is "Q1.v".
+WARNING:Xst:653 - Signal <cin> is used but never assigned. This sourceless signal will be automatically connected to value 0.
+WARNING:Xst:646 - Signal <c> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+Unit <add4> synthesized.
+
+
+Synthesizing Unit <Q1>.
+    Related source file is "Q1.v".
+WARNING:Xst:1780 - Signal <sfe_e> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <sf_e> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <rw> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <rs> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <e> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <d> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <c> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <b1> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <a1> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 4-bit register for signal <a>.
+    Found 4-bit register for signal <b>.
+    Summary:
+	inferred   8 D-type flip-flop(s).
+Unit <Q1> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 10
+ 1-bit adder carry out                                 : 4
+ 2-bit adder                                           : 4
+ 6-bit adder                                           : 1
+ 6-bit addsub                                          : 1
+# Counters                                             : 1
+ 27-bit up counter                                     : 1
+# Registers                                            : 11
+ 1-bit register                                        : 8
+ 4-bit register                                        : 2
+ 6-bit register                                        : 1
+# Comparators                                          : 1
+ 4-bit comparator lessequal                            : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+WARNING:Xst:2798 - Unit <printLCD> : LOC constraints attached to the following signals are ignored because these signals are not connected to the primary design IOs, the LOC constraint is already attached to these IOs, or the KEEP_HIERARCHY constraint is set to YES or SOFT. The signals are: a, b, c, d, e, rs, rw, sf_e.
+WARNING:Xst:1290 - Hierarchical block <print_1> is unconnected in block <Q1>.
+   It will be removed from the design.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 10
+ 1-bit adder carry out                                 : 4
+ 2-bit adder                                           : 4
+ 6-bit adder                                           : 1
+ 6-bit addsub                                          : 1
+# Counters                                             : 1
+ 27-bit up counter                                     : 1
+# Registers                                            : 22
+ Flip-Flops                                            : 22
+# Comparators                                          : 1
+ 4-bit comparator lessequal                            : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:2677 - Node <count_21> of sequential type is unconnected in block <printLCD>.
+WARNING:Xst:2677 - Node <count_22> of sequential type is unconnected in block <printLCD>.
+WARNING:Xst:2677 - Node <count_23> of sequential type is unconnected in block <printLCD>.
+WARNING:Xst:2677 - Node <count_24> of sequential type is unconnected in block <printLCD>.
+WARNING:Xst:2677 - Node <count_25> of sequential type is unconnected in block <printLCD>.
+WARNING:Xst:2677 - Node <count_26> of sequential type is unconnected in block <printLCD>.
+
+Optimizing unit <Q1> ...
+
+Optimizing unit <printLCD> ...
+WARNING:Xst:2677 - Node <print_1/count_20> of sequential type is unconnected in block <Q1>.
+WARNING:Xst:2677 - Node <print_1/count_19> of sequential type is unconnected in block <Q1>.
+WARNING:Xst:2677 - Node <print_1/count_18> of sequential type is unconnected in block <Q1>.
+WARNING:Xst:2677 - Node <print_1/count_17> of sequential type is unconnected in block <Q1>.
+WARNING:Xst:2677 - Node <print_1/count_16> of sequential type is unconnected in block <Q1>.
+WARNING:Xst:2677 - Node <print_1/count_15> of sequential type is unconnected in block <Q1>.
+WARNING:Xst:2677 - Node <print_1/count_14> of sequential type is unconnected in block <Q1>.
+WARNING:Xst:2677 - Node <print_1/count_13> of sequential type is unconnected in block <Q1>.
+WARNING:Xst:2677 - Node <print_1/count_12> of sequential type is unconnected in block <Q1>.
+WARNING:Xst:2677 - Node <print_1/count_11> of sequential type is unconnected in block <Q1>.
+WARNING:Xst:2677 - Node <print_1/count_10> of sequential type is unconnected in block <Q1>.
+WARNING:Xst:2677 - Node <print_1/count_9> of sequential type is unconnected in block <Q1>.
+WARNING:Xst:2677 - Node <print_1/count_8> of sequential type is unconnected in block <Q1>.
+WARNING:Xst:2677 - Node <print_1/count_7> of sequential type is unconnected in block <Q1>.
+WARNING:Xst:2677 - Node <print_1/count_6> of sequential type is unconnected in block <Q1>.
+WARNING:Xst:2677 - Node <print_1/count_5> of sequential type is unconnected in block <Q1>.
+WARNING:Xst:2677 - Node <print_1/count_4> of sequential type is unconnected in block <Q1>.
+WARNING:Xst:2677 - Node <print_1/count_3> of sequential type is unconnected in block <Q1>.
+WARNING:Xst:2677 - Node <print_1/count_2> of sequential type is unconnected in block <Q1>.
+WARNING:Xst:2677 - Node <print_1/count_1> of sequential type is unconnected in block <Q1>.
+WARNING:Xst:2677 - Node <print_1/count_0> of sequential type is unconnected in block <Q1>.
+WARNING:Xst:2677 - Node <print_1/b> of sequential type is unconnected in block <Q1>.
+WARNING:Xst:2677 - Node <print_1/c> of sequential type is unconnected in block <Q1>.
+WARNING:Xst:2677 - Node <print_1/a> of sequential type is unconnected in block <Q1>.
+WARNING:Xst:2677 - Node <print_1/rw> of sequential type is unconnected in block <Q1>.
+WARNING:Xst:2677 - Node <print_1/rs> of sequential type is unconnected in block <Q1>.
+WARNING:Xst:2677 - Node <print_1/d> of sequential type is unconnected in block <Q1>.
+WARNING:Xst:2677 - Node <print_1/e> of sequential type is unconnected in block <Q1>.
+WARNING:Xst:2677 - Node <print_1/refresh> of sequential type is unconnected in block <Q1>.
+WARNING:Xst:2677 - Node <print_1/code_5> of sequential type is unconnected in block <Q1>.
+WARNING:Xst:2677 - Node <print_1/code_4> of sequential type is unconnected in block <Q1>.
+WARNING:Xst:2677 - Node <print_1/code_3> of sequential type is unconnected in block <Q1>.
+WARNING:Xst:2677 - Node <print_1/code_2> of sequential type is unconnected in block <Q1>.
+WARNING:Xst:2677 - Node <print_1/code_1> of sequential type is unconnected in block <Q1>.
+WARNING:Xst:2677 - Node <print_1/code_0> of sequential type is unconnected in block <Q1>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block Q1, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 8
+ Flip-Flops                                            : 8
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : Q1.ngr
+Top Level Output File Name         : Q1
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 8
+
+Cell Usage :
+# BELS                             : 5
+#      LUT2                        : 1
+#      LUT4                        : 3
+#      MUXF5                       : 1
+# FlipFlops/Latches                : 8
+#      FDE                         : 8
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 7
+#      IBUF                        : 6
+#      OBUF                        : 1
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-4 
+
+ Number of Slices:                        4  out of   4656     0%  
+ Number of Slice Flip Flops:              8  out of   9312     0%  
+ Number of 4 input LUTs:                  4  out of   9312     0%  
+ Number of IOs:                           8
+ Number of bonded IOBs:                   8  out of    232     3%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 8     |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: No path found
+   Minimum input arrival time before clock: 3.872ns
+   Maximum output required time after clock: 6.741ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 20 / 16
+-------------------------------------------------------------------------
+Offset:              3.872ns (Levels of Logic = 2)
+  Source:            push1 (PAD)
+  Destination:       b_0 (FF)
+  Destination Clock: clk rising
+
+  Data Path: push1 to b_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             5   1.218   0.808  push1_IBUF (push1_IBUF)
+     LUT2:I0->O            4   0.704   0.587  b_not00011 (b_not0001)
+     FDE:CE                    0.555          b_0
+    ----------------------------------------
+    Total                      3.872ns (2.477ns logic, 1.395ns route)
+                                       (64.0% logic, 36.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 12 / 1
+-------------------------------------------------------------------------
+Offset:              6.741ns (Levels of Logic = 3)
+  Source:            a_1 (FF)
+  Destination:       ledpin (PAD)
+  Source Clock:      clk rising
+
+  Data Path: a_1 to ledpin
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              1   0.591   0.595  a_1 (a_1)
+     LUT4:I0->O            1   0.704   0.420  add4_1/sum3/Madd_AUX_1_addsub0001_cy<0>126_SW0 (N3)
+     MUXF5:S->O            1   0.739   0.420  add4_1/sum3/Madd_AUX_1_addsub0001_cy<0>158_f5 (add4_1/sum3/Madd_AUX_1_addsub0001_cy<0>)
+     OBUF:I->O                 3.272          ledpin_OBUF (ledpin)
+    ----------------------------------------
+    Total                      6.741ns (5.306ns logic, 1.435ns route)
+                                       (78.7% logic, 21.3% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 4.00 secs
+Total CPU time to Xst completion: 4.57 secs
+ 
+--> 
+
+
+Total memory usage is 515660 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   54 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
+

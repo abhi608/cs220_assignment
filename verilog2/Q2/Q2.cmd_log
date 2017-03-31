@@ -1,0 +1,35 @@
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/Q2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/Q2.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/Q2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/Q2.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/Q2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/Q2.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/Q2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/Q2.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/Q2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/Q2.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/Q2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/Q2.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/Q2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/Q2.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Q2.ucf -p xc3s500e-fg320-4 Q2.ngc Q2.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Q2.ucf -p xc3s500e-fg320-4 Q2.ngc Q2.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Q2_map.ncd Q2.ngd Q2.pcf 
+par -w -intstyle ise -ol high -t 1 Q2_map.ncd Q2.ncd Q2.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Q2.twx Q2.ncd -o Q2.twr Q2.pcf -ucf Q2.ucf 
+bitgen -intstyle ise -f Q2.ut Q2.ncd 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/Q2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/Q2.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/Q2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/Q2.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/Q2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/Q2.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/Q2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/Q2.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Q2.ucf -p xc3s500e-fg320-4 Q2.ngc Q2.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Q2_map.ncd Q2.ngd Q2.pcf 
+par -w -intstyle ise -ol high -t 1 Q2_map.ncd Q2.ncd Q2.pcf 
+bitgen -intstyle ise -f Q2.ut Q2.ncd 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/Q2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/Q2.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Q2.ucf -p xc3s500e-fg320-4 Q2.ngc Q2.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Q2_map.ncd Q2.ngd Q2.pcf 
+par -w -intstyle ise -ol high -t 1 Q2_map.ncd Q2.ncd Q2.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Q2.twx Q2.ncd -o Q2.twr Q2.pcf -ucf Q2.ucf 
+bitgen -intstyle ise -f Q2.ut Q2.ncd 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/Q2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/Q2.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/Q2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/Q2.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/Q2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/Q2.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/Q2.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/verilog2/Q2/Q2.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Q2.ucf -p xc3s500e-fg320-4 Q2.ngc Q2.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Q2_map.ncd Q2.ngd Q2.pcf 
+par -w -intstyle ise -ol high -t 1 Q2_map.ncd Q2.ncd Q2.pcf 
+bitgen -intstyle ise -f Q2.ut Q2.ncd 
