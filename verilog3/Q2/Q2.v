@@ -33,6 +33,11 @@ module regfile (input clk,
 	reg [3:0] tmp1;
 	reg [3:0] tmp2;
 
+	initial begin 
+		tmp1 = 4'b0000;
+		tmp2 = 4'b0000;
+	end
+
 	always @(posedge clk)
 		begin
 			if(wenable == 1'b1)

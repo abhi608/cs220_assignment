@@ -100,14 +100,6 @@ module alu4(input [3:0] a,
 	assign select1 = select;
 	assign tmp2 = 4'b0001;
 
-	initial begin
-		res1 = 0;
-		cout = 0;
-		cf = 0;
-		zf = 0;
-		sf = 0;
-	end
-
 	always @(posedge clk)
 		begin
 			if (select == 2'b00)  //add
@@ -180,4 +172,118 @@ module alu4(input [3:0] a,
 	assign cf = cf1;
 	assign zf = zf1;
 	assign sf = sf1;
+endmodule
+
+
+module regfile (input clk,
+				input [3:0] rr1,
+				input [3:0] rr2,
+				input [3:0] wr,
+				input [3:0] wdata,
+				input wenable,
+				output [3:0] outreg1,
+				output [3:0] outreg2
+	);
+
+	reg [3:0] register[15:0];
+	reg [3:0] tmp1;
+	reg [3:0] tmp2;
+
+	always @(posedge clk)
+		begin
+			if(wenable == 1'b1)
+				begin
+					register[wr] <= wdata;
+					tmp1 <= 4'bz;
+					tmp2 <= 4'bz; 
+				end
+			else
+				begin
+					tmp1 <= register[rr1];
+					tmp2 <= register[rr2];
+				end
+		end
+
+	assign outreg1 = tmp1;
+	assign outreg2 = tmp2;
+
+endmodule
+
+
+module processor(input [2:0] opcode,
+				input clk,
+				input [3:0] a,
+				input [3:0] b,
+				input wenable,
+				output [3:0] res,
+				output cf,
+				output zf,
+				output sf,
+				output invalid
+	);
+
+	reg [3:0] tmp1;
+	reg [3:0] tmp2;
+	reg [3:0] tmp3;
+	reg [1:0] tmp4;
+	reg tmp5, tmp6, tmp7, tmp8, tmp9;
+
+	initial begin
+		tmp3 = 0;
+		tmp6 = 0;
+		tmp7 = 0;
+		tmp8 = 0;
+		tmp9 = 0;
+	end
+
+	always @(posedge clk)
+		begin
+			if (opcode == 3'b100)
+				begin
+					regfile instance1(.clk(clk), .rr1(a), .rr2(b), .wr(a), .wdata(b), .wenable(wenable), .outreg1(tmp1), .outreg2(tmp2));
+					tmp3 <= 4'bz;
+					tmp6 <= z;
+					tmp7 <= z;
+					tmp8 <= z;
+					tmp9 <= 0;
+				end
+
+			else if (opcode == 3'b000)  //and
+				begin
+					tmp4 = 2'b10; 
+					alu4 instance2(.a(a), .b(b), .select(tmp4), .clk(clk), .res(tmp3), .cout(tmp5), .cf(tmp6), .zf(tmp7), .sf(tmp8));
+					tmp9 = 0;
+				end
+
+			else if (opcode == 3'b001)  //or
+				begin
+					tmp4 = 2'b10; 
+					alu4 instance3(.a(a), .b(b), .select(tmp4), .clk(clk), .res(tmp3), .cout(tmp5), .cf(tmp6), .zf(tmp7), .sf(tmp8));
+					tmp9 = 0;
+				end
+
+			else if (opcode == 3'b010)  //add
+				begin
+					tmp4 = 2'b11; 
+					alu4 instance4(.a(a), .b(b), .select(tmp4), .clk(clk), .res(tmp3), .cout(tmp5), .cf(tmp6), .zf(tmp7), .sf(tmp8));
+					tmp9 = 0;
+				end
+
+			else if (opcode == 3'b011)  //subtract
+				begin
+					tmp4 = 2'b01; 
+					alu4 instance5(.a(a), .b(b), .select(tmp4), .clk(clk), .res(tmp3), .cout(tmp5), .cf(tmp6), .zf(tmp7), .sf(tmp8));
+					tmp9 = 0;
+				end
+
+			else
+				tmp9 = 1'b1;
+		end
+
+	assign res = tmp3;
+	assign cf = tmp6;
+	assign zf = tmp7;
+	assign sf = tmp8;
+	assign invalid = tmp9;
+
 endmodule
