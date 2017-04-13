@@ -1,0 +1,283 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+/opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/trce -intstyle ise -v 3 -s 4 -n
+3 -fastpaths -xml regfile.twx regfile.ncd -o regfile.twr regfile.pcf -ucf
+Q2.ucf
+
+Design file:              regfile.ncd
+Physical constraint file: regfile.pcf
+Device,package,speed:     xc3s500e,fg320,-4 (PRODUCTION 1.27 2013-10-13)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+INFO:Timing:3390 - This architecture does not support a default System Jitter 
+   value, please add SYSTEM_JITTER constraint to the UCF to modify the Clock 
+   Uncertainty calculation.
+INFO:Timing:3389 - This architecture does not support 'Discrete Jitter' and 
+   'Phase Error' calculations, these terms will be zero in the Clock 
+   Uncertainty calculation.  Please make appropriate modification to 
+   SYSTEM_JITTER to account for the unsupported Discrete Jitter and Phase 
+   Error.
+
+================================================================================
+Timing constraint: NET "clk_BUFGP/IBUFG" PERIOD = 20 ns HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 112 paths analyzed, 112 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is   2.839ns.
+--------------------------------------------------------------------------------
+
+Paths for end point Mtridata_tmp1_2 (SLICE_X52Y64.F2), 1 path
+--------------------------------------------------------------------------------
+Slack (setup path):     17.161ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               rr1_1 (FF)
+  Destination:          Mtridata_tmp1_2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      2.839ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: rr1_1 to Mtridata_tmp1_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X52Y61.XQ      Tcko                  0.592   rr1<1>
+                                                       rr1_1
+    SLICE_X52Y64.F2      net (fanout=4)        1.355   rr1<1>
+    SLICE_X52Y64.CLK     Tfck                  0.892   Mtridata_tmp1<2>
+                                                       Mram_register3.SLICEM_F
+                                                       Mtridata_tmp1_2
+    -------------------------------------------------  ---------------------------
+    Total                                      2.839ns (1.484ns logic, 1.355ns route)
+                                                       (52.3% logic, 47.7% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point Mtridata_tmp1_3 (SLICE_X52Y65.F2), 1 path
+--------------------------------------------------------------------------------
+Slack (setup path):     17.161ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               rr1_1 (FF)
+  Destination:          Mtridata_tmp1_3 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      2.839ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: rr1_1 to Mtridata_tmp1_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X52Y61.XQ      Tcko                  0.592   rr1<1>
+                                                       rr1_1
+    SLICE_X52Y65.F2      net (fanout=4)        1.355   rr1<1>
+    SLICE_X52Y65.CLK     Tfck                  0.892   Mtridata_tmp1<3>
+                                                       Mram_register4.SLICEM_F
+                                                       Mtridata_tmp1_3
+    -------------------------------------------------  ---------------------------
+    Total                                      2.839ns (1.484ns logic, 1.355ns route)
+                                                       (52.3% logic, 47.7% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point Mtridata_tmp2_2 (SLICE_X46Y62.F1), 1 path
+--------------------------------------------------------------------------------
+Slack (setup path):     17.164ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               rr2_0 (FF)
+  Destination:          Mtridata_tmp2_2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      2.836ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: rr2_0 to Mtridata_tmp2_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X50Y61.YQ      Tcko                  0.652   rr2<1>
+                                                       rr2_0
+    SLICE_X46Y62.F1      net (fanout=4)        1.292   rr2<0>
+    SLICE_X46Y62.CLK     Tfck                  0.892   Mtridata_tmp2<2>
+                                                       Mram_register_ren3.SLICEM_F
+                                                       Mtridata_tmp2_2
+    -------------------------------------------------  ---------------------------
+    Total                                      2.836ns (1.544ns logic, 1.292ns route)
+                                                       (54.4% logic, 45.6% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: NET "clk_BUFGP/IBUFG" PERIOD = 20 ns HIGH 50%;
+--------------------------------------------------------------------------------
+
+Paths for end point Mram_register_ren2.SLICEM_G (SLICE_X50Y62.BY), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.763ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               wdata_1 (FF)
+  Destination:          Mram_register_ren2.SLICEM_G (RAM)
+  Requirement:          0.000ns
+  Data Path Delay:      0.754ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.009ns (0.007 - 0.016)
+  Source Clock:         clk_BUFGP rising at 20.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: wdata_1 to Mram_register_ren2.SLICEM_G
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X53Y60.XQ      Tcko                  0.473   wdata<1>
+                                                       wdata_1
+    SLICE_X50Y62.BY      net (fanout=2)        0.408   wdata<1>
+    SLICE_X50Y62.CLK     Tdh         (-Th)     0.127   Mtridata_tmp2<1>
+                                                       Mram_register_ren2.SLICEM_G
+    -------------------------------------------------  ---------------------------
+    Total                                      0.754ns (0.346ns logic, 0.408ns route)
+                                                       (45.9% logic, 54.1% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point Mram_register_ren2.SLICEM_F (SLICE_X50Y62.BY), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.778ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               wdata_1 (FF)
+  Destination:          Mram_register_ren2.SLICEM_F (RAM)
+  Requirement:          0.000ns
+  Data Path Delay:      0.769ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.009ns (0.007 - 0.016)
+  Source Clock:         clk_BUFGP rising at 20.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: wdata_1 to Mram_register_ren2.SLICEM_F
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X53Y60.XQ      Tcko                  0.473   wdata<1>
+                                                       wdata_1
+    SLICE_X50Y62.BY      net (fanout=2)        0.408   wdata<1>
+    SLICE_X50Y62.CLK     Tdh         (-Th)     0.112   Mtridata_tmp2<1>
+                                                       Mram_register_ren2.SLICEM_F
+    -------------------------------------------------  ---------------------------
+    Total                                      0.769ns (0.361ns logic, 0.408ns route)
+                                                       (46.9% logic, 53.1% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point Mram_register1.SLICEM_F (SLICE_X52Y60.G3), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.794ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               wr_2 (FF)
+  Destination:          Mram_register1.SLICEM_F (RAM)
+  Requirement:          0.000ns
+  Data Path Delay:      0.792ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.002ns (0.002 - 0.004)
+  Source Clock:         clk_BUFGP rising at 20.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: wr_2 to Mram_register1.SLICEM_F
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X53Y58.YQ      Tcko                  0.470   wr<3>
+                                                       wr_2
+    SLICE_X52Y60.G3      net (fanout=8)        0.321   wr<2>
+    SLICE_X52Y60.CLK     Tah         (-Th)    -0.001   Mtridata_tmp1<0>
+                                                       Mram_register1.SLICEM_F
+    -------------------------------------------------  ---------------------------
+    Total                                      0.792ns (0.471ns logic, 0.321ns route)
+                                                       (59.5% logic, 40.5% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: NET "clk_BUFGP/IBUFG" PERIOD = 20 ns HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 18.348ns (period - (min low pulse limit / (low pulse / period)))
+  Period: 20.000ns
+  Low pulse: 10.000ns
+  Low pulse limit: 0.826ns (Tcl)
+  Physical resource: Mtridata_tmp1<0>/CLK
+  Logical resource: Mtridata_tmp1_0/CK
+  Location pin: SLICE_X52Y60.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.348ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 20.000ns
+  High pulse: 10.000ns
+  High pulse limit: 0.826ns (Tch)
+  Physical resource: Mtridata_tmp1<0>/CLK
+  Logical resource: Mtridata_tmp1_0/CK
+  Location pin: SLICE_X52Y60.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.348ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.652ns (605.327MHz) (Tcp)
+  Physical resource: Mtridata_tmp1<0>/CLK
+  Logical resource: Mtridata_tmp1_0/CK
+  Location pin: SLICE_X52Y60.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+
+
+All constraints were met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    2.839|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
+
+Constraints cover 112 paths, 0 nets, and 89 connections
+
+Design statistics:
+   Minimum period:   2.839ns{1}   (Maximum frequency: 352.237MHz)
+
+
+------------------------------------Footnotes-----------------------------------
+1)  The minimum period statistic assumes all single cycle delays.
+
+Analysis completed Fri Apr 14 04:20:19 2017 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 354 MB
+
+
+

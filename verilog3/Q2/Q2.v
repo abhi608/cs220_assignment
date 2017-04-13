@@ -20,13 +20,14 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module regfile (input clk,
-				input [3:0] rr1,
-				input [3:0] rr2,
-				input [3:0] wr,
-				input [3:0] wdata,
 				input wenable,
 				output [3:0] outreg1,
-				output [3:0] outreg2
+				output [3:0] outreg2,
+				input [3:0] no,
+				input push1,
+				input push2,
+				input push3,
+				input push4
 	);
 
 	reg [3:0] register[15:0];
@@ -37,6 +38,20 @@ module regfile (input clk,
 		tmp1 = 4'b0000;
 		tmp2 = 4'b0000;
 	end
+
+	reg [3:0] rr1,rr2,wr,wdata;
+
+	always @(posedge clk)
+		begin
+			if(push1 == 1)
+				rr1 = no;
+			else if(push2 == 1)
+				rr2 = no;
+			else if(push3 == 1)
+				wr = no;
+			else if(push4 == 1)
+				wdata = no;
+		end
 
 	always @(posedge clk)
 		begin

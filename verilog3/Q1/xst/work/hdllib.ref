@@ -1,0 +1,7 @@
+MO alu4 NULL Q1.v vlg66/alu4.bin 1492122816
+MO sub4 NULL Q1.v vlg32/sub4.bin 1492122816
+MO printLCD NULL Q1.v vlg20/print_l_c_d.bin 1492122816
+MO or4 NULL Q1.v vlg45/or4.bin 1492122816
+MO add1 NULL Q1.v vlg46/add1.bin 1492122816
+MO add4 NULL Q1.v vlg49/add4.bin 1492122816
+MO and4 NULL Q1.v vlg43/and4.bin 1492122816

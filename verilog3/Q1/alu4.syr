@@ -1,0 +1,518 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.06 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.06 secs
+ 
+--> 
+Reading design: alu4.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "alu4.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "alu4"
+Output Format                      : NGC
+Target Device                      : xc3s500e-4-fg320
+
+---- Source Options
+Top Module Name                    : alu4
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "Q1.v" in library work
+Module <add1> compiled
+Module <add4> compiled
+Module <sub4> compiled
+Module <and4> compiled
+Module <or4> compiled
+Module <alu4> compiled
+Module <printLCD> compiled
+No errors in compilation
+Analysis of file <"alu4.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <alu4> in library <work>.
+
+Analyzing hierarchy for module <add4> in library <work>.
+
+Analyzing hierarchy for module <sub4> in library <work>.
+
+Analyzing hierarchy for module <and4> in library <work>.
+
+Analyzing hierarchy for module <or4> in library <work>.
+
+Analyzing hierarchy for module <printLCD> in library <work>.
+
+Analyzing hierarchy for module <add1> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <alu4>.
+Module <alu4> is correct for synthesis.
+ 
+Analyzing module <add4> in library <work>.
+Module <add4> is correct for synthesis.
+ 
+Analyzing module <add1> in library <work>.
+Module <add1> is correct for synthesis.
+ 
+Analyzing module <sub4> in library <work>.
+Module <sub4> is correct for synthesis.
+ 
+Analyzing module <and4> in library <work>.
+Module <and4> is correct for synthesis.
+ 
+Analyzing module <or4> in library <work>.
+Module <or4> is correct for synthesis.
+ 
+Analyzing module <printLCD> in library <work>.
+Module <printLCD> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <and4>.
+    Related source file is "Q1.v".
+Unit <and4> synthesized.
+
+
+Synthesizing Unit <or4>.
+    Related source file is "Q1.v".
+Unit <or4> synthesized.
+
+
+Synthesizing Unit <printLCD>.
+    Related source file is "Q1.v".
+    Found 1-bit register for signal <a>.
+    Found 1-bit register for signal <b>.
+    Found 1-bit register for signal <c>.
+    Found 1-bit register for signal <d>.
+    Found 1-bit register for signal <e>.
+    Found 1-bit register for signal <rs>.
+    Found 1-bit register for signal <rw>.
+    Found 6-bit register for signal <code>.
+    Found 6-bit addsub for signal <code$addsub0000>.
+    Found 6-bit adder for signal <code$addsub0001> created at line 291.
+    Found 4-bit comparator lessequal for signal <code$cmp_le0000> created at line 278.
+    Found 27-bit up counter for signal <count>.
+    Found 1-bit register for signal <refresh>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred  14 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred   1 Comparator(s).
+Unit <printLCD> synthesized.
+
+
+Synthesizing Unit <add1>.
+    Related source file is "Q1.v".
+    Found 1-bit adder carry out for signal <AUX_7$addsub0001> created at line 28.
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+Unit <add1> synthesized.
+
+
+Synthesizing Unit <add4>.
+    Related source file is "Q1.v".
+Unit <add4> synthesized.
+
+
+Synthesizing Unit <sub4>.
+    Related source file is "Q1.v".
+Unit <sub4> synthesized.
+
+
+Synthesizing Unit <alu4>.
+    Related source file is "Q1.v".
+WARNING:Xst:646 - Signal <zf1> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <sub_cout1> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <sf1> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <select1> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <res1> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <cout1> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <cf1> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 1-bit register for signal <cf>.
+    Found 1-bit register for signal <cout>.
+    Found 4-bit register for signal <res>.
+    Found 1-bit register for signal <sf>.
+    Found 1-bit register for signal <zf>.
+    Found 4-bit register for signal <a>.
+    Found 4-bit register for signal <b>.
+    Found 2-bit register for signal <select>.
+    Summary:
+	inferred  18 D-type flip-flop(s).
+	inferred   5 Multiplexer(s).
+Unit <alu4> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 26
+ 1-bit adder carry out                                 : 12
+ 2-bit adder                                           : 12
+ 6-bit adder                                           : 1
+ 6-bit addsub                                          : 1
+# Counters                                             : 1
+ 27-bit up counter                                     : 1
+# Registers                                            : 17
+ 1-bit register                                        : 12
+ 2-bit register                                        : 1
+ 4-bit register                                        : 3
+ 6-bit register                                        : 1
+# Comparators                                          : 1
+ 4-bit comparator lessequal                            : 1
+# Multiplexers                                         : 2
+ 1-bit 4-to-1 multiplexer                              : 1
+ 4-bit 4-to-1 multiplexer                              : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+WARNING:Xst:79 - Model 'and4' has different characteristics in destination library
+WARNING:Xst:80 - Model name has been changed to 'and41'
+WARNING:Xst:79 - Model 'or4' has different characteristics in destination library
+WARNING:Xst:80 - Model name has been changed to 'or41'
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 26
+ 1-bit adder carry out                                 : 12
+ 2-bit adder                                           : 12
+ 6-bit adder                                           : 1
+ 6-bit addsub                                          : 1
+# Counters                                             : 1
+ 27-bit up counter                                     : 1
+# Registers                                            : 32
+ Flip-Flops                                            : 32
+# Comparators                                          : 1
+ 4-bit comparator lessequal                            : 1
+# Multiplexers                                         : 2
+ 1-bit 4-to-1 multiplexer                              : 1
+ 4-bit 4-to-1 multiplexer                              : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <alu4> ...
+
+Optimizing unit <printLCD> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block alu4, actual ratio is 1.
+
+Final Macro Processing ...
+
+Processing Unit <alu4> :
+	Found 2-bit shift register for signal <print_1/e>.
+Unit <alu4> processed.
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 57
+ Flip-Flops                                            : 57
+# Shift Registers                                      : 1
+ 2-bit shift register                                  : 1
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : alu4.ngr
+Top Level Output File Name         : alu4
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 24
+
+Cell Usage :
+# BELS                             : 185
+#      GND                         : 1
+#      INV                         : 1
+#      LUT1                        : 27
+#      LUT2                        : 17
+#      LUT2_D                      : 3
+#      LUT3                        : 22
+#      LUT3_D                      : 2
+#      LUT3_L                      : 2
+#      LUT4                        : 29
+#      LUT4_D                      : 5
+#      LUT4_L                      : 2
+#      MUXCY                       : 31
+#      MUXF5                       : 9
+#      VCC                         : 1
+#      XORCY                       : 33
+# FlipFlops/Latches                : 58
+#      FD                          : 42
+#      FDE                         : 10
+#      FDR                         : 5
+#      FDS                         : 1
+# Shift Registers                  : 1
+#      SRL16                       : 1
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 23
+#      IBUF                        : 7
+#      OBUF                        : 16
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-4 
+
+ Number of Slices:                       59  out of   4656     1%  
+ Number of Slice Flip Flops:             58  out of   9312     0%  
+ Number of 4 input LUTs:                111  out of   9312     1%  
+    Number used as logic:               110
+    Number used as Shift registers:       1
+ Number of IOs:                          24
+ Number of bonded IOBs:                  24  out of    232    10%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 59    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 6.585ns (Maximum Frequency: 151.860MHz)
+   Minimum input arrival time before clock: 3.908ns
+   Maximum output required time after clock: 4.796ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 6.585ns (frequency: 151.860MHz)
+  Total number of paths / destination ports: 798 / 55
+-------------------------------------------------------------------------
+Delay:               6.585ns (Levels of Logic = 5)
+  Source:            b_1 (FF)
+  Destination:       res_1 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: b_1 to res_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q             11   0.591   1.108  b_1 (b_1)
+     LUT4_D:I0->O          2   0.704   0.451  dif1/sum1/Madd_AUX_7_addsub0001_cy<0>11 (dif1/sum1/Madd_AUX_7_addsub0001_cy<0>)
+     LUT4_D:I3->O          3   0.704   0.535  dif1/sum3/Madd_AUX_7_addsub0001_xor<0>11 (sub_res<3>)
+     LUT4:I3->O            1   0.704   0.455  _old_res1_1<1>1 (_old_res1_1<1>)
+     LUT3:I2->O            1   0.704   0.000  Mmux__old_res1_2_41 (Mmux__old_res1_2_41)
+     MUXF5:I0->O           1   0.321   0.000  Mmux__old_res1_2_2_f5_0 (_old_res1_2<1>)
+     FD:D                      0.308          res_1
+    ----------------------------------------
+    Total                      6.585ns (4.036ns logic, 2.549ns route)
+                                       (61.3% logic, 38.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 28 / 20
+-------------------------------------------------------------------------
+Offset:              3.908ns (Levels of Logic = 2)
+  Source:            push1 (PAD)
+  Destination:       b_0 (FF)
+  Destination Clock: clk rising
+
+  Data Path: push1 to b_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             6   1.218   0.844  push1_IBUF (push1_IBUF)
+     LUT2:I0->O            4   0.704   0.587  b_not00011 (b_not0001)
+     FDE:CE                    0.555          b_0
+    ----------------------------------------
+    Total                      3.908ns (2.477ns logic, 1.431ns route)
+                                       (63.4% logic, 36.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 15 / 15
+-------------------------------------------------------------------------
+Offset:              4.796ns (Levels of Logic = 1)
+  Source:            res_3 (FF)
+  Destination:       res<3> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: res_3 to res<3>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q              11   0.591   0.933  res_3 (res_3)
+     OBUF:I->O                 3.272          res_3_OBUF (res<3>)
+    ----------------------------------------
+    Total                      4.796ns (3.863ns logic, 0.933ns route)
+                                       (80.5% logic, 19.5% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 7.00 secs
+Total CPU time to Xst completion: 6.36 secs
+ 
+--> 
+
+
+Total memory usage is 517488 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   11 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
+

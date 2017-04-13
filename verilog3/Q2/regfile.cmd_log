@@ -1,0 +1,7 @@
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/verilog3/Q2/regfile.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/verilog3/Q2/regfile.syr" 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/verilog3/Q2/regfile.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/verilog3/Q2/regfile.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Q2.ucf -p xc3s500e-fg320-4 regfile.ngc regfile.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o regfile_map.ncd regfile.ngd regfile.pcf 
+par -w -intstyle ise -ol high -t 1 regfile_map.ncd regfile.ncd regfile.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml regfile.twx regfile.ncd -o regfile.twr regfile.pcf -ucf Q2.ucf 
+bitgen -intstyle ise -f regfile.ut regfile.ncd 

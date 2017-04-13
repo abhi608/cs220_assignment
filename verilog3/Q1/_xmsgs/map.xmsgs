@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="info" file="MapLib" num="562" delta="old" >No environment variables are currently set.
+</msg>
+
+<msg type="warning" file="MapLib" num="23" delta="old" >Short on signal <arg fmt="%s" index="1">sf_e</arg> detected.
+</msg>
+
+<msg type="warning" file="MapLib" num="23" delta="old" >Short on signal <arg fmt="%s" index="1">sf_e</arg> detected.
+</msg>
+
+<msg type="warning" file="MapLib" num="23" delta="old" >Short on signal <arg fmt="%s" index="1">sf_e</arg> detected.
+</msg>
+
+<msg type="warning" file="MapLib" num="23" delta="old" >Short on signal <arg fmt="%s" index="1">sf_e</arg> detected.
+</msg>
+
+<msg type="warning" file="MapLib" num="23" delta="old" >Short on signal <arg fmt="%s" index="1">sf_e</arg> detected.
+</msg>
+
+<msg type="info" file="MapLib" num="159" delta="old" >Net Timing constraints on signal <arg fmt="%s" index="1">clk</arg> are pushed forward through input buffer.
+</msg>
+
+<msg type="info" file="LIT" num="244" delta="old" >All of the single ended outputs in this design are using slew rate limited output drivers. The delay on speed critical single ended outputs can be dramatically reduced by designating them as fast outputs.
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="781" delta="old" ><arg fmt="%s" index="1">PULLDOWN</arg> on an active net. <arg fmt="%s" index="2">PULLDOWN</arg> of comp <arg fmt="%s" index="3">e</arg> is set but the tri state is not configured. 
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="781" delta="old" ><arg fmt="%s" index="1">PULLDOWN</arg> on an active net. <arg fmt="%s" index="2">PULLDOWN</arg> of comp <arg fmt="%s" index="3">rs</arg> is set but the tri state is not configured. 
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="781" delta="old" ><arg fmt="%s" index="1">PULLDOWN</arg> on an active net. <arg fmt="%s" index="2">PULLDOWN</arg> of comp <arg fmt="%s" index="3">a2</arg> is set but the tri state is not configured. 
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="781" delta="old" ><arg fmt="%s" index="1">PULLDOWN</arg> on an active net. <arg fmt="%s" index="2">PULLDOWN</arg> of comp <arg fmt="%s" index="3">rw</arg> is set but the tri state is not configured. 
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="781" delta="old" ><arg fmt="%s" index="1">PULLDOWN</arg> on an active net. <arg fmt="%s" index="2">PULLDOWN</arg> of comp <arg fmt="%s" index="3">b2</arg> is set but the tri state is not configured. 
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="781" delta="old" ><arg fmt="%s" index="1">PULLDOWN</arg> on an active net. <arg fmt="%s" index="2">PULLDOWN</arg> of comp <arg fmt="%s" index="3">c</arg> is set but the tri state is not configured. 
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="781" delta="old" ><arg fmt="%s" index="1">PULLDOWN</arg> on an active net. <arg fmt="%s" index="2">PULLDOWN</arg> of comp <arg fmt="%s" index="3">d</arg> is set but the tri state is not configured. 
+</msg>
+
+</messages>
+
