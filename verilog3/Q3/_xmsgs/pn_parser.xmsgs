@@ -8,38 +8,5 @@
 <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.    -->
 
 <messages>
-<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;/home/deepak/6thSem/CS220A/Assignments/verilog3/Q3/Q3.v&quot; into library work</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">/home/deepak/6thSem/CS220A/Assignments/verilog3/Q3/Q3.v</arg>&quot; Line <arg fmt="%d" index="2">110</arg>. <arg fmt="%s" index="3">Syntax error near &quot;else&quot;.</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">/home/deepak/6thSem/CS220A/Assignments/verilog3/Q3/Q3.v</arg>&quot; Line <arg fmt="%d" index="2">113</arg>. <arg fmt="%s" index="3">Syntax error near &quot;if&quot;.</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">/home/deepak/6thSem/CS220A/Assignments/verilog3/Q3/Q3.v</arg>&quot; Line <arg fmt="%d" index="2">115</arg>. <arg fmt="%s" index="3">Syntax error near &quot;else&quot;.</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">/home/deepak/6thSem/CS220A/Assignments/verilog3/Q3/Q3.v</arg>&quot; Line <arg fmt="%d" index="2">118</arg>. <arg fmt="%s" index="3">Syntax error near &quot;sf1&quot;.</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">/home/deepak/6thSem/CS220A/Assignments/verilog3/Q3/Q3.v</arg>&quot; Line <arg fmt="%d" index="2">136</arg>. <arg fmt="%s" index="3">Syntax error near &quot;else&quot;.</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">/home/deepak/6thSem/CS220A/Assignments/verilog3/Q3/Q3.v</arg>&quot; Line <arg fmt="%d" index="2">139</arg>. <arg fmt="%s" index="3">Syntax error near &quot;cf1&quot;.</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">/home/deepak/6thSem/CS220A/Assignments/verilog3/Q3/Q3.v</arg>&quot; Line <arg fmt="%d" index="2">150</arg>. <arg fmt="%s" index="3">Syntax error near &quot;else&quot;.</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">/home/deepak/6thSem/CS220A/Assignments/verilog3/Q3/Q3.v</arg>&quot; Line <arg fmt="%d" index="2">153</arg>. <arg fmt="%s" index="3">Syntax error near &quot;sf1&quot;.</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">/home/deepak/6thSem/CS220A/Assignments/verilog3/Q3/Q3.v</arg>&quot; Line <arg fmt="%d" index="2">164</arg>. <arg fmt="%s" index="3">Syntax error near &quot;else&quot;.</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">/home/deepak/6thSem/CS220A/Assignments/verilog3/Q3/Q3.v</arg>&quot; Line <arg fmt="%d" index="2">167</arg>. <arg fmt="%s" index="3">Syntax error near &quot;sf1&quot;.</arg>
-</msg>
-
 </messages>
 

@@ -106,14 +106,14 @@ module alu4(input [3:0] a,
 				begin
 					add4 sum1(.a(a1), .b(b1), .sum(res1), .carry(cout1));
 					if (cout1 == 1'b1)
-						cf1 = 1'b1
+						cf1 = 1'b1;
 					else
-						cf1 = 1'b0
+						cf1 = 1'b0;
 
 					if (res1 == 4'b0000)
-						zf1 = 1'b1
+						zf1 = 1'b1;
 					else
-						zf1 = 1'b0
+						zf1 = 1'b0;
 
 					sf1 = 1'b0;  //positive
 				end
@@ -132,9 +132,9 @@ module alu4(input [3:0] a,
 						sf1 = 1'b0;
 
 					if (res1 == 4'b0000)
-						zf1 = 1'b1
+						zf1 = 1'b1;
 					else
-						zf1 = 1'b0
+						zf1 = 1'b0;
 
 					cf1 = 1'b0;  
 				end
@@ -146,9 +146,9 @@ module alu4(input [3:0] a,
 					cf1 = 1'b0;
 
 					if (res1 == 4'b0000)
-						zf1 = 1'b1
+						zf1 = 1'b1;
 					else
-						zf1 = 1'b0
+						zf1 = 1'b0;
 
 					sf1 = 1'b0;
 				end
@@ -160,9 +160,9 @@ module alu4(input [3:0] a,
 					cf1 = 1'b0;
 
 					if (res1 == 4'b0000)
-						zf1 = 1'b1
+						zf1 = 1'b1;
 					else
-						zf1 = 1'b0
+						zf1 = 1'b0;
 
 					sf1 = 1'b0;
 				end
@@ -210,10 +210,8 @@ module regfile (input clk,
 endmodule
 
 
-module processor(input [2:0] opcode,
+module processor(input [3:0] no,
 				input clk,
-				input [3:0] a,
-				input [3:0] b,
 				input wenable,
 				output [3:0] res,
 				output cf,
@@ -235,6 +233,18 @@ module processor(input [2:0] opcode,
 		tmp8 = 0;
 		tmp9 = 0;
 	end
+
+reg [3:0] a,b;
+reg [2:0] opcode;
+	always @(posedge clk)
+		begin
+			if(push1 == 1)
+				a = no;
+			else if(push2 == 1)
+				b = no;
+			else if(push3 == 1)
+				opcode = no[2:0];
+		end
 
 	always @(posedge clk)
 		begin
@@ -285,5 +295,83 @@ module processor(input [2:0] opcode,
 	assign zf = tmp7;
 	assign sf = tmp8;
 	assign invalid = tmp9;
+	
+	printLCD print_1(.value(res[3:0]),.clk(clk),.sf_e(sf_e),.e(e),.rs(rs),.rw(rw),.d(d),.c(c),.b(b1),.a(a1));
+
+endmodule
+
+
+module printLCD(value,clk, sf_e, e, rs, rw, d, c, b, a);
+
+input [3:0] value;
+input clk; 
+output reg sf_e; // 1 LCD access (0 strataFlash access)
+output reg e; // enable (1)
+output reg rs;	// Register Select (1 data bits for R/W)
+output reg rw;	// Read/Write 1/0
+output reg d;	// 4th data bits (to form a nibble)
+output reg c;	// 3rd data bits (to form a nibble)
+output reg b;	// 2nd data bits (to form a nibble)
+output reg a;	// 1st data bits (to form a nibble)
+
+reg [26:0] count = 0;	// 27-bit count, 0-(128M-1), over 2 secs
+reg [5:0] code;	// 6-bits different signals to give out
+reg refresh;	// refresh LCD rate @ about 25Hz
+
+always @ (posedge clk) begin
+count <= count + 1;
+
+case (count [26:21])	// as top 6 bits change
+// power-on init can be carried out befor this loop to avoid the flickers
+0: code <= 6'h03;	// power-on init sequence
+1: code <= 6'h03;	// this is needed at least once
+2: code <= 6'h03;	// when LCD's powered on
+3: code <= 6'h02;	// it flickers existing char dislay
+// Table 5-3, Function Set 
+// Send 00 and upper nibble 0010, then 00 and lower nibble 10xx
+4: code <= 6'h02; // Function Set, upper nibble 0010 
+5: code <= 6'h08; // lower nibble 1000 (10xx)
+// Table 5-3, Entry Mode 
+// send 00 and upper nibble: I/D bit (Incr 1, Decr 0), S bit (Shift 1, 0 no) 
+6: code <= 6'h00; // see table, upper nibble 0000, then lower nibble: 
+7: code <= 6'h06; // 0110: Incr, Shift disabled
+// Table 5-3, Display On/Off 
+// send 00 and upper nibble 0000, then 00 and lower nibble 1 DCB 
+// D: 1, show char represented by code in DDR, 0 don't, but code remains 
+// C: 1, show cursor, 0 don't 
+// B: 1, cursor blinks (if shown), 0 don't blink (if shown) 
+8: code <= 6'h00; // Display On/Off, upper nibble 0000 
+9: code <= 6'h0C; // lower nibble 1100 (1 D C B)
+// Table 5-3 Clear Display, 00 and upper nibble 0000, 00 and lower nibble 0001 
+10: code <= 6'h00; // Clear Display, 00 and upper nibble 0000 
+11: code <= 6'h01; // then 00 and lower nibble 0001
+12: begin 
+	if (value <= 4'h9)
+	begin
+		code <= 6'h23;
+	end
+	else
+		code <= 6'h24;
+	end
+13: begin 
+	if (value <= 4'h9)
+	begin
+		code <= 6'h20 + value[3:0];
+	end
+	else
+		code <= 6'h20 + value[3:0] - 4'b1001;
+	end
+
+default: code <= 6'h10; // the restun-used time 
+endcase 
+
+// refresh (enable) the LCD when bit 20 of the count is 1 
+// (it flips when counted upto 2M, and flips again after another 2M) 
+refresh <= count[ 20 ]; // flip rate about 25 (50MHz/2*21=2M) 
+sf_e <= 1; e <= refresh; 
+rs <= code[5]; rw <= code[4]; 
+d <= code[3]; c <= code[2]; 
+b <= code[1]; a <= code[0]; 
+end // always
 
 endmodule

@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/verilog3/Q3/processor.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/verilog3/Q3/processor.syr" 
