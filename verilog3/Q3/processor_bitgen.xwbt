@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/deepak/6thSem/CS220A/Assignments/verilog3/Q3/processor.ncd
+OUTFILE=/home/deepak/6thSem/CS220A/Assignments/verilog3/Q3/processor.bit
+FAMILY=Spartan3E
+PART=xc3s500e-4fg320
+WORKINGDIR=/home/deepak/6thSem/CS220A/Assignments/verilog3/Q3
+LICENSE=WebPack
+USER_INFO=211321521_0_0_331

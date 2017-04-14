@@ -80,13 +80,13 @@ module alu4(input [3:0] a,
 			input [3:0] b,
 			input [1:0] select,
 			input clk,
-			output [3:0] res,
-			output cout,
-			output cf,
-			output zf,
-			output sf
+			output reg [3:0] res,
+			output reg cout,
+			output reg cf,
+			output reg zf,
+			output reg sf
 	);
-	wire [3:0] a1;
+	/*wire [3:0] a1;
 	wire [3:0] b1;
 	wire [1:0] select1;
 	reg [3:0] res1;
@@ -171,7 +171,128 @@ module alu4(input [3:0] a,
 	assign cout = cout1;
 	assign cf = cf1;
 	assign zf = zf1;
-	assign sf = sf1;
+	assign sf = sf1;*/
+	
+	wire [3:0] a1;
+	wire [3:0] b1;
+	wire [1:0] select1;
+//	reg	[1:0]	select;
+//	reg [3:0] a,b,res1;
+	reg [3:0] res1;
+	reg cout1, cf1, zf1, sf1;
+	wire [3:0] tmp1;
+	wire [3:0] tmp2;
+	wire [3:0] tmp3;
+
+	assign a1 = a;
+	assign b1 = b;
+	assign select1 = select;
+	assign tmp2 = 4'b0001;
+
+	initial begin
+		res1 = 0;
+		cout = 0;
+		cf = 0;
+		zf = 0;
+		sf = 0;
+	end
+	
+	wire [3:0] sum_res, and_res, or_res, sub_res;
+	wire sum_cout, sub_cout;
+	add4 sum1(.a(a1[3:0]), .b(b1[3:0]), .sum(sum_res[3:0]), .carry(sum_cout));
+	sub4 dif1(.a(a1[3:0]), .b(b1[3:0]), .sum(sub_res[3:0]), .carry(sub_cout));
+	assign tmp1 = ~sub_res;
+	add4 sum2(.a(tmp1[3:0]), .b(tmp2[3:0]), .sum(tmp3[3:0]), .carry(sub_cout1));
+	and4 instance1(.a(a1[3:0]), .b(b1[3:0]), .result(and_res[3:0]));
+	or4 instance2(.a(a1[3:0]), .b(b1[3:0]), .result(or_res[3:0]));
+	
+	
+	always @(posedge clk)
+		begin
+			if (select == 2'b00)  //add
+				begin
+					//assign res1 = sum_res;
+					//add4 sum1(.a(a1[3:0]), .b(b1[3:0]), .sum(res1[3:0]), .carry(cout1));
+					//add4(a1[3:0],b1[3:0],res1[3:0],cout1);
+					res1 = sum_res;
+					cout1 = sum_cout;
+					if (cout1 == 1'b1)
+						cf1 = 1'b1;
+					else
+						cf1 = 1'b0;
+
+					if (res1 == 4'b0000)
+						zf1 = 1'b1;
+					else
+						zf1 = 1'b0;
+
+					sf1 = 1'b0;  //positive
+				end
+
+			else if (select == 2'b01)  //subtract
+				begin
+					//sub4 dif1(.a(a1[3:0]), .b(b1[3:0]), .sum(res1[3:0]), .carry(cout1));
+					//sub4(a1[3:0], b1[3:0], res1[3:0], cout1);
+					res1 = sub_res;
+					cout1 = sub_cout;
+					if (res1[3:3] == 1'b1)
+						begin
+							sf1 = 1'b1;
+							//tmp1 = ~res1;
+							//add4 sum2(.a(tmp1[3:0]), .b(tmp2[3:0]), .sum(tmp3[3:0]), .carry(cout1));
+							//add4(tmp1[3:0], tmp2[3:0], tmp3[3:0],cout1);
+							res1 = tmp3;
+							cout = sub_cout1;
+						end
+					else
+						sf1 = 1'b0;
+
+					if (res1 == 4'b0000)
+						zf1 = 1'b1;
+					else
+						zf1 = 1'b0;
+
+					cf1 = 1'b0;  
+				end
+
+			else if (select == 2'b10)  //and
+				begin
+					//and4 instance1(.a(a1[3:0]), .b(b1[3:0]), .result(res1[3:0]));
+					//and4(a1[3:0], b1[3:0], res1[3:0]);
+					res1 = and_res;
+					cout1 = 1'b0;
+					cf1 = 1'b0;
+
+					if (res1 == 4'b0000)
+						zf1 = 1'b1;
+					else
+						zf1 = 1'b0;
+
+					sf1 = 1'b0;
+				end
+
+			else  //or
+				begin
+					//or4 instance2(.a(a1[3:0]), .b(b1[3:0]), .result(res1[3:0]));
+					//or4(a1[3:0],b1[3:0],res1[3:0]);
+					res1 = or_res;
+					cout1 = 1'b0;
+					cf1 = 1'b0;
+
+					if (res1 == 4'b0000)
+						zf1 = 1'b1;
+					else
+						zf1 = 1'b0;
+
+					sf1 = 1'b0;
+				end
+				
+					res = res1;
+					cout = cout1;
+					cf = cf1;
+					zf = zf1;
+					sf = sf1;
+		end
 endmodule
 
 
@@ -217,7 +338,18 @@ module processor(input [3:0] no,
 				output cf,
 				output zf,
 				output sf,
-				output invalid
+				output invalid,
+				input push1,
+				input push2,
+				input push3,
+				output  sf_e,
+				output  e,
+				output  rs,
+				output  rw,
+				output  d,
+				output  c,
+				output  b1,
+				output  a1
 	);
 
 	reg [3:0] tmp1;
@@ -245,45 +377,83 @@ reg [2:0] opcode;
 			else if(push3 == 1)
 				opcode = no[2:0];
 		end
+wire [3:0] tmp1_1,tmp2_1;
+wire [3:0] tmp3_1,tmp3_2,tmp3_3,tmp3_4;
+wire tmp5_1,tmp6_1,tmp7_1,tmp8_1;
+wire tmp5_2,tmp6_2,tmp7_2,tmp8_2;
+wire tmp5_3,tmp6_3,tmp7_3,tmp8_3;
+wire tmp5_4,tmp6_4,tmp7_4,tmp8_4;
+regfile instance1(.clk(clk), .rr1(a), .rr2(b), .wr(a), .wdata(b), .wenable(wenable), .outreg1(tmp1_1), .outreg2(tmp2_1));
+alu4 instance2(.a(a), .b(b), .select(2'b10), .clk(clk), .res(tmp3_1), .cout(tmp5_1), .cf(tmp6_1), .zf(tmp7_1), .sf(tmp8_1));
+alu4 instance3(.a(a), .b(b), .select(2'b11), .clk(clk), .res(tmp3_2), .cout(tmp5_2), .cf(tmp6_2), .zf(tmp7_2), .sf(tmp8_2));
+alu4 instance4(.a(a), .b(b), .select(2'b00), .clk(clk), .res(tmp3_3), .cout(tmp5_3), .cf(tmp6_3), .zf(tmp7_3), .sf(tmp8_3));
+alu4 instance5(.a(a), .b(b), .select(2'b01), .clk(clk), .res(tmp3_4), .cout(tmp5_4), .cf(tmp6_4), .zf(tmp7_4), .sf(tmp8_4));
 
 	always @(posedge clk)
 		begin
 			if (opcode == 3'b100)
 				begin
-					regfile instance1(.clk(clk), .rr1(a), .rr2(b), .wr(a), .wdata(b), .wenable(wenable), .outreg1(tmp1), .outreg2(tmp2));
-					tmp3 <= 4'bz;
-					tmp6 <= z;
-					tmp7 <= z;
-					tmp8 <= z;
-					tmp9 <= 0;
+					//regfile instance1(.clk(clk), .rr1(a), .rr2(b), .wr(a), .wdata(b), .wenable(wenable), .outreg1(tmp1), .outreg2(tmp2));
+					//tmp3 <= 4'bz;
+					//tmp6 <= z;
+					//tmp7 <= z;
+					//tmp8 <= z;
+					//tmp9 <= 0;
+					
+					tmp1 <= tmp1_1;
+					tmp2 <= tmp2_1;
 				end
 
 			else if (opcode == 3'b000)  //and
 				begin
 					tmp4 = 2'b10; 
-					alu4 instance2(.a(a), .b(b), .select(tmp4), .clk(clk), .res(tmp3), .cout(tmp5), .cf(tmp6), .zf(tmp7), .sf(tmp8));
+					//alu4 instance2(.a(a), .b(b), .select(tmp4), .clk(clk), .res(tmp3), .cout(tmp5), .cf(tmp6), .zf(tmp7), .sf(tmp8));
 					tmp9 = 0;
+					
+					tmp3 <= tmp3_1;
+					tmp5 <= tmp5_1;
+					tmp6 <= tmp6_1;
+					tmp7 <= tmp7_1;
+					tmp8 <= tmp8_1;
 				end
 
 			else if (opcode == 3'b001)  //or
 				begin
-					tmp4 = 2'b10; 
-					alu4 instance3(.a(a), .b(b), .select(tmp4), .clk(clk), .res(tmp3), .cout(tmp5), .cf(tmp6), .zf(tmp7), .sf(tmp8));
+					tmp4 = 2'b11; 
+					//alu4 instance3(.a(a), .b(b), .select(tmp4), .clk(clk), .res(tmp3), .cout(tmp5), .cf(tmp6), .zf(tmp7), .sf(tmp8));
 					tmp9 = 0;
+					
+					tmp3 <= tmp3_2;
+					tmp5 <= tmp5_2;
+					tmp6 <= tmp6_2;
+					tmp7 <= tmp7_2;
+					tmp8 <= tmp8_2;
 				end
 
 			else if (opcode == 3'b010)  //add
 				begin
-					tmp4 = 2'b11; 
-					alu4 instance4(.a(a), .b(b), .select(tmp4), .clk(clk), .res(tmp3), .cout(tmp5), .cf(tmp6), .zf(tmp7), .sf(tmp8));
+					tmp4 = 2'b00; 
+					//alu4 instance4(.a(a), .b(b), .select(tmp4), .clk(clk), .res(tmp3), .cout(tmp5), .cf(tmp6), .zf(tmp7), .sf(tmp8));
 					tmp9 = 0;
+					
+					tmp3 <= tmp3_3;
+					tmp5 <= tmp5_3;
+					tmp6 <= tmp6_3;
+					tmp7 <= tmp7_3;
+					tmp8 <= tmp8_3;
 				end
 
 			else if (opcode == 3'b011)  //subtract
 				begin
 					tmp4 = 2'b01; 
-					alu4 instance5(.a(a), .b(b), .select(tmp4), .clk(clk), .res(tmp3), .cout(tmp5), .cf(tmp6), .zf(tmp7), .sf(tmp8));
+					//alu4 instance5(.a(a), .b(b), .select(tmp4), .clk(clk), .res(tmp3), .cout(tmp5), .cf(tmp6), .zf(tmp7), .sf(tmp8));
 					tmp9 = 0;
+					
+					tmp3 <= tmp3_4;
+					tmp5 <= tmp5_4;
+					tmp6 <= tmp6_4;
+					tmp7 <= tmp7_4;
+					tmp8 <= tmp8_4;
 				end
 
 			else

@@ -14,13 +14,13 @@
          <ClosedNode>/sub4 |home|deepak|6thSem|CS220A|Assignments|verilog3|Q1|Q1.v</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>Q1.ucf (/home/deepak/6thSem/CS220A/Assignments/verilog3/Q1/Q1.ucf)</SelectedItem>
+         <SelectedItem>alu4 (/home/deepak/6thSem/CS220A/Assignments/verilog3/Q1/Q1.v)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >1</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000000f6000000020000000000000000000000000200000064ffffffff000000810000000300000002000000f60000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>Q1.ucf (/home/deepak/6thSem/CS220A/Assignments/verilog3/Q1/Q1.ucf)</CurrentItem>
+      <CurrentItem>alu4 (/home/deepak/6thSem/CS220A/Assignments/verilog3/Q1/Q1.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
       <ClosedNodes>
