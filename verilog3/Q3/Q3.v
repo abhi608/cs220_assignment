@@ -94,6 +94,8 @@ module alu4(input [3:0] a,
 	reg [3:0] tmp1;
 	reg [3:0] tmp2;
 	reg [3:0] tmp3;
+	wire [3:0] tmp30;
+	wire [3:0] tmp31;
 
 	assign a1 = a;
 	assign b1 = b;
@@ -105,10 +107,13 @@ module alu4(input [3:0] a,
 			if (select == 2'b00)  //add
 				begin
 					add4 sum1(.a(a1), .b(b1), .sum(res1), .carry(cout1));
-					if (cout1 == 1'b1)
-						cf1 = 1'b1;
-					else
-						cf1 = 1'b0;
+					cf1 = 1'b0;
+					if(a1[3] == b1[3])
+						begin
+							if(a1[3] != res1[3])
+								cf1 = 1'b1;
+
+						end
 
 					if (res1 == 4'b0000)
 						zf1 = 1'b1;
@@ -183,6 +188,8 @@ module alu4(input [3:0] a,
 	wire [3:0] tmp1;
 	wire [3:0] tmp2;
 	wire [3:0] tmp3;
+	wire [3:0] tmp30;
+	wire [3:0] tmp31;
 
 	assign a1 = a;
 	assign b1 = b;
@@ -198,11 +205,14 @@ module alu4(input [3:0] a,
 	end
 	
 	wire [3:0] sum_res, and_res, or_res, sub_res;
-	wire sum_cout, sub_cout;
+	wire sum_cout, sub_cout, tmp_cout;
 	add4 sum1(.a(a1[3:0]), .b(b1[3:0]), .sum(sum_res[3:0]), .carry(sum_cout));
 	sub4 dif1(.a(a1[3:0]), .b(b1[3:0]), .sum(sub_res[3:0]), .carry(sub_cout));
 	assign tmp1 = ~sub_res;
+	assign tmp30 = ~b1;
+	assign tmp31 = 4'b0001;
 	add4 sum2(.a(tmp1[3:0]), .b(tmp2[3:0]), .sum(tmp3[3:0]), .carry(sub_cout1));
+	add4 sum3(.a(tmp30[3:0]), .b(tmp31[3:0]), .sum(tmp32[3:0]), .carry(tmp_cout));  //to check cf
 	and4 instance1(.a(a1[3:0]), .b(b1[3:0]), .result(and_res[3:0]));
 	or4 instance2(.a(a1[3:0]), .b(b1[3:0]), .result(or_res[3:0]));
 	
@@ -216,10 +226,13 @@ module alu4(input [3:0] a,
 					//add4(a1[3:0],b1[3:0],res1[3:0],cout1);
 					res1 = sum_res;
 					cout1 = sum_cout;
-					if (cout1 == 1'b1)
-						cf1 = 1'b1;
-					else
-						cf1 = 1'b0;
+					cf1 = 1'b0;
+					if(a1[3] == b1[3])
+						begin
+							if(a1[3] != res1[3])
+								cf1 = 1'b1;
+
+						end
 
 					if (res1 == 4'b0000)
 						zf1 = 1'b1;
@@ -235,6 +248,13 @@ module alu4(input [3:0] a,
 					//sub4(a1[3:0], b1[3:0], res1[3:0], cout1);
 					res1 = sub_res;
 					cout1 = sub_cout;
+					cf1 = 1'b0;
+					if(a1[3] == tmp32[3])
+						begin
+							if(a1[3] != res1[3])
+								cf1 = 1'b1;
+
+						end
 					if (res1[3:3] == 1'b1)
 						begin
 							sf1 = 1'b1;
@@ -252,7 +272,6 @@ module alu4(input [3:0] a,
 					else
 						zf1 = 1'b0;
 
-					cf1 = 1'b0;  
 				end
 
 			else if (select == 2'b10)  //and
