@@ -107,6 +107,7 @@ module alu4(
 	wire [3:0] tmp3;
 	wire [3:0] tmp30;
 	wire [3:0] tmp31;
+	wire [3:0] tmp32;
 
 	assign a1 = a;
 	assign b1 = b;
@@ -165,7 +166,7 @@ module alu4(
 					else
 						zf1 = 1'b0;
 
-					sf1 = 1'b0;  //positive
+					sf1 = cout1;  //positive
 				end
 
 			else if (select == 2'b01)  //subtract

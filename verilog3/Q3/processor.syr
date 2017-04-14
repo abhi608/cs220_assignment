@@ -4,14 +4,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.06 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
+Total REAL time to Xst completion: 1.00 secs
 Total CPU time to Xst completion: 0.06 secs
  
 --> 
@@ -208,8 +208,8 @@ Synthesizing Unit <printLCD>.
     Found 1-bit register for signal <rw>.
     Found 6-bit register for signal <code>.
     Found 6-bit addsub for signal <code$addsub0000>.
-    Found 6-bit adder for signal <code$addsub0001> created at line 532.
-    Found 4-bit comparator lessequal for signal <code$cmp_le0000> created at line 519.
+    Found 6-bit adder for signal <code$addsub0001> created at line 552.
+    Found 4-bit comparator lessequal for signal <code$cmp_le0000> created at line 539.
     Found 27-bit up counter for signal <count>.
     Found 1-bit register for signal <refresh>.
     Summary:
@@ -251,6 +251,8 @@ Unit <sub4> synthesized.
 Synthesizing Unit <alu4>.
     Related source file is "Q3.v".
 WARNING:Xst:646 - Signal <zf1> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <tmp_cout> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <tmp32<2:0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <sub_cout1> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <sf1> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <select1> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
@@ -262,6 +264,10 @@ WARNING:Xst:646 - Signal <cf1> is assigned but never used. This unconnected sign
     Found 1-bit register for signal <sf>.
     Found 1-bit register for signal <zf>.
     Found 4-bit register for signal <res>.
+    Found 1-bit xor2 for signal <old_cf1_4$xor0000> created at line 231.
+    Found 1-bit xor2 for signal <old_cf1_4$xor0001> created at line 233.
+    Found 1-bit xor2 for signal <old_cf1_4$xor0002> created at line 253.
+    Found 1-bit xor2 for signal <old_cf1_4$xor0003> created at line 255.
     Summary:
 	inferred   8 D-type flip-flop(s).
 	inferred   5 Multiplexer(s).
@@ -294,9 +300,9 @@ WARNING:Xst:524 - All outputs of the instance <instance1> of the block <regfile>
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 98
- 1-bit adder carry out                                 : 48
- 2-bit adder                                           : 48
+# Adders/Subtractors                                   : 130
+ 1-bit adder carry out                                 : 64
+ 2-bit adder                                           : 64
  6-bit adder                                           : 1
  6-bit addsub                                          : 1
 # Counters                                             : 1
@@ -311,6 +317,8 @@ Macro Statistics
 # Multiplexers                                         : 8
  1-bit 4-to-1 multiplexer                              : 4
  4-bit 4-to-1 multiplexer                              : 4
+# Xors                                                 : 16
+ 1-bit xor2                                            : 16
 
 =========================================================================
 
@@ -322,20 +330,24 @@ WARNING:Xst:79 - Model 'and4' has different characteristics in destination libra
 WARNING:Xst:80 - Model name has been changed to 'and41'
 WARNING:Xst:79 - Model 'or4' has different characteristics in destination library
 WARNING:Xst:80 - Model name has been changed to 'or41'
+WARNING:Xst:1290 - Hierarchical block <sum3> is unconnected in block <instance2>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <sum3> is unconnected in block <instance3>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <sum3> is unconnected in block <instance4>.
+   It will be removed from the design.
 INFO:Xst:2261 - The FF/Latch <cf> in Unit <instance2> is equivalent to the following FF/Latch, which will be removed : <sf> 
 INFO:Xst:2261 - The FF/Latch <cf> in Unit <instance3> is equivalent to the following FF/Latch, which will be removed : <sf> 
 WARNING:Xst:1293 - FF/Latch <cf> has a constant value of 0 in block <instance2>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <cf> has a constant value of 0 in block <instance3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <sf> has a constant value of 0 in block <instance4>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cf> has a constant value of 0 in block <instance5>. This FF/Latch will be trimmed during the optimization process.
 
 =========================================================================
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 98
- 1-bit adder carry out                                 : 48
- 2-bit adder                                           : 48
+# Adders/Subtractors                                   : 130
+ 1-bit adder carry out                                 : 64
+ 2-bit adder                                           : 64
  6-bit adder                                           : 1
  6-bit addsub                                          : 1
 # Counters                                             : 1
@@ -347,15 +359,15 @@ Macro Statistics
 # Multiplexers                                         : 8
  1-bit 4-to-1 multiplexer                              : 4
  4-bit 4-to-1 multiplexer                              : 4
+# Xors                                                 : 16
+ 1-bit xor2                                            : 16
 
 =========================================================================
 
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:1293 - FF/Latch <instance5/cf> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <instance4/sf> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <instance3/sf> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <instance3/sf> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <instance3/cf> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <instance2/sf> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <instance2/cf> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
@@ -385,8 +397,8 @@ Unit <processor> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 80
- Flip-Flops                                            : 80
+# Registers                                            : 82
+ Flip-Flops                                            : 82
 # Shift Registers                                      : 1
  2-bit shift register                                  : 1
 
@@ -417,13 +429,13 @@ Design Statistics
 # IOs                              : 25
 
 Cell Usage :
-# BELS                             : 189
+# BELS                             : 192
 #      GND                         : 1
 #      INV                         : 1
 #      LUT1                        : 27
-#      LUT2                        : 26
+#      LUT2                        : 24
 #      LUT2_D                      : 2
-#      LUT3                        : 12
+#      LUT3                        : 17
 #      LUT3_D                      : 2
 #      LUT4                        : 42
 #      LUT4_D                      : 1
@@ -432,8 +444,8 @@ Cell Usage :
 #      MUXF5                       : 8
 #      VCC                         : 1
 #      XORCY                       : 33
-# FlipFlops/Latches                : 81
-#      FD                          : 57
+# FlipFlops/Latches                : 83
+#      FD                          : 59
 #      FDE                         : 11
 #      FDR                         : 7
 #      FDS                         : 6
@@ -451,10 +463,10 @@ Device utilization summary:
 
 Selected Device : 3s500efg320-4 
 
- Number of Slices:                       63  out of   4656     1%  
- Number of Slice Flip Flops:             81  out of   9312     0%  
- Number of 4 input LUTs:                116  out of   9312     1%  
-    Number used as logic:               115
+ Number of Slices:                       64  out of   4656     1%  
+ Number of Slice Flip Flops:             83  out of   9312     0%  
+ Number of 4 input LUTs:                119  out of   9312     1%  
+    Number used as logic:               118
     Number used as Shift registers:       1
  Number of IOs:                          25
  Number of bonded IOBs:                  24  out of    232    10%  
@@ -481,7 +493,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 82    |
+clk                                | BUFGP                  | 84    |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -504,7 +516,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
   Clock period: 6.618ns (frequency: 151.103MHz)
-  Total number of paths / destination ports: 875 / 83
+  Total number of paths / destination ports: 897 / 85
 -------------------------------------------------------------------------
 Delay:               6.618ns (Levels of Logic = 9)
   Source:            tmp3_2 (FF)
@@ -573,15 +585,15 @@ Offset:              4.824ns (Levels of Logic = 1)
 =========================================================================
 
 
-Total REAL time to Xst completion: 7.00 secs
+Total REAL time to Xst completion: 8.00 secs
 Total CPU time to Xst completion: 6.77 secs
  
 --> 
 
 
-Total memory usage is 527876 kilobytes
+Total memory usage is 527880 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   31 (   0 filtered)
+Number of warnings :   32 (   0 filtered)
 Number of infos    :    3 (   0 filtered)
 

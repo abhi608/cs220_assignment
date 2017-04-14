@@ -4,14 +4,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
+Total REAL time to Xst completion: 1.00 secs
 Total CPU time to Xst completion: 0.06 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
+Total REAL time to Xst completion: 1.00 secs
 Total CPU time to Xst completion: 0.06 secs
  
 --> 
@@ -71,7 +71,7 @@ Automatic Register Balancing       : No
 
 ---- Target Options
 Add IO Buffers                     : YES
-Global Maximum Fanout              : 500
+Global Maximum Fanout              : 100000
 Add Generic Clock Buffer(BUFG)     : 24
 Register Duplication               : YES
 Slice Packing                      : YES
@@ -189,8 +189,8 @@ Synthesizing Unit <printLCD>.
     Found 1-bit register for signal <rw>.
     Found 6-bit register for signal <code>.
     Found 6-bit addsub for signal <code$addsub0000>.
-    Found 6-bit adder for signal <code$addsub0001> created at line 291.
-    Found 4-bit comparator lessequal for signal <code$cmp_le0000> created at line 278.
+    Found 6-bit adder for signal <code$addsub0001> created at line 306.
+    Found 4-bit comparator lessequal for signal <code$cmp_le0000> created at line 293.
     Found 27-bit up counter for signal <count>.
     Found 1-bit register for signal <refresh>.
     Summary:
@@ -222,6 +222,8 @@ Unit <sub4> synthesized.
 Synthesizing Unit <alu4>.
     Related source file is "Q1.v".
 WARNING:Xst:646 - Signal <zf1> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <tmp_cout> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <tmp32<2:0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <sub_cout1> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <sf1> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <select1> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
@@ -235,6 +237,10 @@ WARNING:Xst:646 - Signal <cf1> is assigned but never used. This unconnected sign
     Found 1-bit register for signal <zf>.
     Found 4-bit register for signal <a>.
     Found 4-bit register for signal <b>.
+    Found 1-bit xor2 for signal <old_cf1_4$xor0000> created at line 157.
+    Found 1-bit xor2 for signal <old_cf1_4$xor0001> created at line 159.
+    Found 1-bit xor2 for signal <old_cf1_4$xor0002> created at line 179.
+    Found 1-bit xor2 for signal <old_cf1_4$xor0003> created at line 181.
     Found 2-bit register for signal <select>.
     Summary:
 	inferred  18 D-type flip-flop(s).
@@ -247,9 +253,9 @@ INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmet
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 26
- 1-bit adder carry out                                 : 12
- 2-bit adder                                           : 12
+# Adders/Subtractors                                   : 34
+ 1-bit adder carry out                                 : 16
+ 2-bit adder                                           : 16
  6-bit adder                                           : 1
  6-bit addsub                                          : 1
 # Counters                                             : 1
@@ -264,6 +270,8 @@ Macro Statistics
 # Multiplexers                                         : 2
  1-bit 4-to-1 multiplexer                              : 1
  4-bit 4-to-1 multiplexer                              : 1
+# Xors                                                 : 4
+ 1-bit xor2                                            : 4
 
 =========================================================================
 
@@ -280,9 +288,9 @@ WARNING:Xst:80 - Model name has been changed to 'or41'
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 26
- 1-bit adder carry out                                 : 12
- 2-bit adder                                           : 12
+# Adders/Subtractors                                   : 34
+ 1-bit adder carry out                                 : 16
+ 2-bit adder                                           : 16
  6-bit adder                                           : 1
  6-bit addsub                                          : 1
 # Counters                                             : 1
@@ -294,6 +302,8 @@ Macro Statistics
 # Multiplexers                                         : 2
  1-bit 4-to-1 multiplexer                              : 1
  4-bit 4-to-1 multiplexer                              : 1
+# Xors                                                 : 4
+ 1-bit xor2                                            : 4
 
 =========================================================================
 
@@ -351,26 +361,26 @@ Design Statistics
 # IOs                              : 24
 
 Cell Usage :
-# BELS                             : 185
+# BELS                             : 191
 #      GND                         : 1
 #      INV                         : 1
 #      LUT1                        : 27
-#      LUT2                        : 17
-#      LUT2_D                      : 3
-#      LUT3                        : 22
-#      LUT3_D                      : 2
+#      LUT2                        : 15
+#      LUT2_D                      : 4
+#      LUT3                        : 23
+#      LUT3_D                      : 1
 #      LUT3_L                      : 2
-#      LUT4                        : 29
-#      LUT4_D                      : 5
-#      LUT4_L                      : 2
+#      LUT4                        : 35
+#      LUT4_D                      : 4
+#      LUT4_L                      : 1
 #      MUXCY                       : 31
-#      MUXF5                       : 9
+#      MUXF5                       : 12
 #      VCC                         : 1
 #      XORCY                       : 33
 # FlipFlops/Latches                : 58
-#      FD                          : 42
+#      FD                          : 43
 #      FDE                         : 10
-#      FDR                         : 5
+#      FDR                         : 4
 #      FDS                         : 1
 # Shift Registers                  : 1
 #      SRL16                       : 1
@@ -386,10 +396,10 @@ Device utilization summary:
 
 Selected Device : 3s500efg320-4 
 
- Number of Slices:                       59  out of   4656     1%  
+ Number of Slices:                       60  out of   4656     1%  
  Number of Slice Flip Flops:             58  out of   9312     0%  
- Number of 4 input LUTs:                111  out of   9312     1%  
-    Number used as logic:               110
+ Number of 4 input LUTs:                114  out of   9312     1%  
+    Number used as logic:               113
     Number used as Shift registers:       1
  Number of IOs:                          24
  Number of bonded IOBs:                  24  out of    232    10%  
@@ -427,7 +437,7 @@ Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: 6.585ns (Maximum Frequency: 151.860MHz)
+   Minimum period: 6.669ns (Maximum Frequency: 149.948MHz)
    Minimum input arrival time before clock: 3.908ns
    Maximum output required time after clock: 4.796ns
    Maximum combinational path delay: No path found
@@ -438,29 +448,29 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 6.585ns (frequency: 151.860MHz)
-  Total number of paths / destination ports: 798 / 55
+  Clock period: 6.669ns (frequency: 149.948MHz)
+  Total number of paths / destination ports: 822 / 54
 -------------------------------------------------------------------------
-Delay:               6.585ns (Levels of Logic = 5)
-  Source:            b_1 (FF)
-  Destination:       res_1 (FF)
+Delay:               6.669ns (Levels of Logic = 5)
+  Source:            a_1 (FF)
+  Destination:       zf (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: b_1 to res_1
+  Data Path: a_1 to zf
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q             11   0.591   1.108  b_1 (b_1)
+     FDE:C->Q             12   0.591   1.136  a_1 (a_1)
      LUT4_D:I0->O          2   0.704   0.451  dif1/sum1/Madd_AUX_7_addsub0001_cy<0>11 (dif1/sum1/Madd_AUX_7_addsub0001_cy<0>)
-     LUT4_D:I3->O          3   0.704   0.535  dif1/sum3/Madd_AUX_7_addsub0001_xor<0>11 (sub_res<3>)
+     LUT4:I3->O            4   0.704   0.591  dif1/sum3/Madd_AUX_7_addsub0001_xor<0>11 (sub_res<3>)
      LUT4:I3->O            1   0.704   0.455  _old_res1_1<1>1 (_old_res1_1<1>)
      LUT3:I2->O            1   0.704   0.000  Mmux__old_res1_2_41 (Mmux__old_res1_2_41)
      MUXF5:I0->O           1   0.321   0.000  Mmux__old_res1_2_2_f5_0 (_old_res1_2<1>)
      FD:D                      0.308          res_1
     ----------------------------------------
-    Total                      6.585ns (4.036ns logic, 2.549ns route)
-                                       (61.3% logic, 38.7% route)
+    Total                      6.669ns (4.036ns logic, 2.633ns route)
+                                       (60.5% logic, 39.5% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
@@ -504,15 +514,15 @@ Offset:              4.796ns (Levels of Logic = 1)
 =========================================================================
 
 
-Total REAL time to Xst completion: 7.00 secs
-Total CPU time to Xst completion: 6.36 secs
+Total REAL time to Xst completion: 10.00 secs
+Total CPU time to Xst completion: 8.32 secs
  
 --> 
 
 
-Total memory usage is 517488 kilobytes
+Total memory usage is 517660 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   11 (   0 filtered)
+Number of warnings :   13 (   0 filtered)
 Number of infos    :    1 (   0 filtered)
 

@@ -49,3 +49,9 @@ map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o alu4_ma
 par -w -intstyle ise -ol high -t 1 alu4_map.ncd alu4.ncd alu4.pcf 
 trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml alu4.twx alu4.ncd -o alu4.twr alu4.pcf -ucf Q1.ucf 
 bitgen -intstyle ise -f alu4.ut alu4.ncd 
+xst -intstyle ise -ifn "/home/deepak/6thSem/CS220A/Assignments/verilog3/Q1/alu4.xst" -ofn "/home/deepak/6thSem/CS220A/Assignments/verilog3/Q1/alu4.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Q1.ucf -p xc3s500e-fg320-4 alu4.ngc alu4.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o alu4_map.ncd alu4.ngd alu4.pcf 
+par -w -intstyle ise -ol high -t 1 alu4_map.ncd alu4.ncd alu4.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml alu4.twx alu4.ncd -o alu4.twr alu4.pcf -ucf Q1.ucf 
+bitgen -intstyle ise -f alu4.ut alu4.ncd 

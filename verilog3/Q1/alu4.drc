@@ -1,7 +1,7 @@
 Release 14.7 Drc P.20131013 (lin64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Fri Apr 14 04:04:13 2017
+Fri Apr 14 20:17:07 2017
 
 drc -z alu4.ncd alu4.pcf
 
